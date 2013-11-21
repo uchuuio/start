@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app>
 	<head>
-		<title>START</title>
+		<title>Start</title>
 		<!-- build:css assets/css/tidy-combined.css -->
 		<link href="compiled/css/combined.css" rel="stylesheet" media="screen">
 		<!-- /build -->
@@ -28,7 +28,7 @@
 				<div class="col-sm-10 col-sm-offset-1" ng-controller="Links">
 					<div class="row links" ng-repeat="group in groups">
 						<div class="col-xs-12">
-							<h3>{{name}}</h3>
+							<h3>{{group.name}}</h3>
 						</div>
 						<div class="col-xs-3" ng-repeat="link in group.links">
 							<a href="{{link.url}}" target="_blank" class="link">
