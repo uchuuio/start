@@ -10,9 +10,10 @@ function Chan4 ($scope) {
 
 function Reddit ($scope) {
 	$scope.links = [
-		{url:"http://reddit.com/anime", text:"/anime"},
-		{url:"http://reddit.com/vocaloid", text:"/vocaloid"},
-		{url:"http://reddit.com/webdev", text:"/webdev"},
+		{url:"http://reddit.com/r/anime", text:"/anime"},
+		{url:"http://reddit.com/r/leagueoflegends", text:"/LoL"},
+		{url:"http://reddit.com/r/vocaloid", text:"/vocaloid"},
+		{url:"http://reddit.com/r/webdev", text:"/webdev"},
 	];
 }
 
