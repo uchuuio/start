@@ -23,32 +23,12 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-10 col-sm-offset-1">
-					<div class="row links" ng-controller="Chan4">
+				<div class="col-sm-10 col-sm-offset-1" ng-controller="Links">
+					<div class="row links" ng-repeat="category in categories">
 						<div class="col-xs-12">
-							<h3>4chan</h3>
+							<h3>{{category.category}}</h3>
 						</div>
-						<div class="col-xs-3" ng-repeat="link in links">
-							<a href="{{link.url}}" target="_blank" class="link">
-								<p>{{link.text}}</p>
-							</a>
-						</div>
-					</div>
-					<div class="row links" ng-controller="Reddit">
-						<div class="col-xs-12">
-							<h3>Reddit</h3>
-						</div>
-						<div class="col-xs-3" ng-repeat="link in links">
-							<a href="{{link.url}}" target="_blank" class="link">
-								<p>{{link.text}}</p>
-							</a>
-						</div>
-					</div>
-					<div class="row links" ng-controller="Other">
-						<div class="col-xs-12">
-							<h3>Misc.</h3>
-						</div>
-						<div class="col-xs-3" ng-repeat="link in links">
+						<div class="col-xs-3" ng-repeat="link in category.links">
 							<a href="{{link.url}}" target="_blank" class="link">
 								<p>{{link.text}}</p>
 							</a>
