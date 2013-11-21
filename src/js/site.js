@@ -20,7 +20,7 @@ function Other ($scope) {
 	$scope.links = [
 		{url:"http://facebook.com", text:"Facebook"},
 		{url:"http://twitter.com", text:"Twitter"},
-		{url:"http://youtube.com", text:"Yotube"},
+		{url:"http://youtube.com", text:"Youtube"},
 		{url:"http://github.com", text:"Github"},
 		{url:"http://twitch.tv", text:"Twitch"},
 		{url:"http://nyaa.se", text:"Nyaa"},

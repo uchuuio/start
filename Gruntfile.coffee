@@ -112,9 +112,9 @@ module.exports = (grunt) ->
 				dest: 'src/compiled/css/combined.css'
 			siteJs:
 				src: [
-					'src/vendor/jquery/js/jquery.js'
-					'<%= concat.bootstrapJs.dest %>'
-					'src/vendor/angular/js/angular.js'
+					# 'src/vendor/jquery/js/jquery.min.js'
+					# '<%= concat.bootstrapJs.dest %>'
+					'src/vendor/angular/js/angular.min.js'
 					'src/js/site.js'
 				]
 				dest: 'assets/js/combined.js'
@@ -124,6 +124,8 @@ module.exports = (grunt) ->
 			dist:
 				files:
 					'assets/css/tidy-combined.css': ['src/*.html']
+				options:
+      					compress:true
 
 		# Processes the HTML for any changes (Goes with UnCSS)
 		processhtml:
