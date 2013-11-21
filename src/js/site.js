@@ -1,7 +1,7 @@
 function Links ($scope) {
-	$scope.categories = [
+	$scope.groups = [
 		{
-			category: "4chan",
+			name: "4chan",
 			links: [
 				{url:"http://4chan.org/a/", text:"/a/"},
 				{url:"http://4chan.org/jp/", text:"/jp/"},
@@ -11,7 +11,7 @@ function Links ($scope) {
 			]
 		},
 		{
-			category: "Reddit",
+			name: "Reddit",
 			links: [
 				{url:"http://reddit.com/r/anime", text:"/anime"},
 				{url:"http://reddit.com/r/leagueoflegends", text:"/LoL"},
@@ -20,7 +20,7 @@ function Links ($scope) {
 			]
 		},
 		{
-			category: "Other",
+			name: "Other",
 			links: [
 				{url:"http://facebook.com", text:"Facebook"},
 				{url:"http://twitter.com", text:"Twitter"},
