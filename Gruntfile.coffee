@@ -115,7 +115,7 @@ module.exports = (grunt) ->
 					# 'src/vendor/jquery/js/jquery.min.js'
 					# '<%= concat.bootstrapJs.dest %>'
 					'src/vendor/angular/js/angular.min.js'
-					'src/js/site.js'
+					'src/js/sites.js'
 				]
 				dest: 'assets/js/combined.js'
 
