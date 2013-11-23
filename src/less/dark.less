@@ -1,0 +1,40 @@
+@base-color: #222;
+
+body {
+	// background: url('../img/dark_bg.png') repeat 0 0 scroll @base-color;
+	background: @base-color;
+	text-align: center;
+}
+
+h1 {
+	font-size: 14em;
+	font-style: italic;
+}
+
+h3 {
+	text-align: left;
+}
+
+a {
+	background: lighten(@base-color, 10%);
+	color: lighten(@base-color, 20%);
+	display: block;
+	p {
+		font-size: 2em;
+	}
+}
+
+input {
+	background: lighten(@base-color, 10%) !important;
+	border: lighten(@base-color, 20%) !important;
+	// color: lighten(@base-color, 20%) !important;
+	color: #D9D9D9 !important;
+}
+button {
+	background: lighten(@base-color, 10%) !important;
+	border: lighten(@base-color, 20%) !important;
+	color: lighten(@base-color, 20%) !important;
+	&:hover {
+		color: #D9D9D9 !important;
+	}
+}
