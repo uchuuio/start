@@ -82,9 +82,9 @@ module.exports = (grunt) ->
 				dest: 'src/compiled/css/bootstrap.css'
 			site:
 				src: [
-					'src/less/site.less'
+					'src/less/dark.less'
 				]
-				dest: 'src/compiled/css/site.css'
+				dest: 'src/compiled/css/dark.css'
 
 		# Concat files together.
 		concat:
