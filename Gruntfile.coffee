@@ -88,22 +88,6 @@ module.exports = (grunt) ->
 
 		# Concat files together.
 		concat:
-			bootstrapJs:
-				src: [
-					'src/vendor/bootstrap/js/transition.js'
-					'src/vendor/bootstrap/js/alert.js'
-					'src/vendor/bootstrap/js/button.js'
-					'src/vendor/bootstrap/js/carousel.js'
-					'src/vendor/bootstrap/js/collapse.js'
-					'src/vendor/bootstrap/js/dropdown.js'
-					'src/vendor/bootstrap/js/modal.js'
-					'src/vendor/bootstrap/js/tooltip.js'
-					'src/vendor/bootstrap/js/popover.js'
-					'src/vendor/bootstrap/js/scrollspy.js'
-					'src/vendor/bootstrap/js/tab.js'
-					'src/vendor/bootstrap/js/affix.js'
-				],
-				dest: 'assets/compiled/js/bootstrap.js'
 			siteCss:
 				src: [
 					'<%= recess.bootstrap.dest %>'
@@ -112,8 +96,6 @@ module.exports = (grunt) ->
 				dest: 'src/compiled/css/combined.css'
 			siteJs:
 				src: [
-					# 'src/vendor/jquery/js/jquery.min.js'
-					# '<%= concat.bootstrapJs.dest %>'
 					'src/vendor/angular/js/angular.min.js'
 					'src/js/sites.js'
 				]
