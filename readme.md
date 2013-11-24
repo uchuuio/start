@@ -11,7 +11,7 @@ Edit sites by renaming `/src/js/config.sites.js` to `/src/js/sites.js` and then 
 
 #### Light
 
-![image](http://puu.sh/5r0kW.png)
+![image](http://puu.sh/5rN8C.png)
 
 Change line 85 in Gruntfile.coffee to `'src/less/light.less'`
 
