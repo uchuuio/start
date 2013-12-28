@@ -117,28 +117,6 @@ module.exports = (grunt) ->
 				files:
 					# Add your pages here
 					'index.html': ['src/index.html'],
-	
-		# Minify CSS
-		cssmin:
-			options:
-				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-				keepSpecialComments: 0
-			siteCss:
-				src: [
-					'<%= concat.siteCss.dest %>'
-				]
-				dest: '<%= concat.siteCss.dest %>'
-
-		# Minify JS
-		uglify:
-			options:
-				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-				compress: true
-			siteJs:
-				src: [
-					'<%= concat.siteJs.dest %>'
-				]
-				dest: '<%= concat.siteJs.dest %>'
 
 	# These plugins provide necessary tasks.
 	grunt.loadNpmTasks 'grunt-contrib-watch'
@@ -149,13 +127,11 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-recess'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-concat'
-	grunt.loadNpmTasks 'grunt-contrib-cssmin'
-	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-uncss'
 	grunt.loadNpmTasks 'grunt-processhtml'
 
 	# Default tasks.
-	grunt.registerTask 'default', ['jshint', 'coffeelint', 'clean:dist', 'copy', 'recess', 'concat', 'uncss', 'processhtml']#, 'cssmin', 'uglify' ]
+	grunt.registerTask 'default', ['jshint', 'coffeelint', 'clean:dist', 'copy', 'recess', 'concat', 'uncss', 'processhtml']
 	
 	grunt.registerTask 'css', ['recess', 'concat:siteCss']
 	grunt.registerTask 'js', ['jshint', 'coffeelint', 'concat:siteJs']
