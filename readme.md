@@ -11,7 +11,7 @@ Edit sites by renaming `/src/js/config.sites.js` to `/src/js/sites.js` and then 
 
 #### Base (Light)
 
-![image](http://puu.sh/61hK3.png)
+![image](http://puu.sh/61hOp.png)
 
 
 ##### Remember to run `grunt` after every change!
