@@ -82,7 +82,7 @@ module.exports = (grunt) ->
 				dest: 'src/compiled/css/bootstrap.css'
 			site:
 				src: [
-					'src/less/light.less'
+					'src/less/site.less'
 				]
 				dest: 'src/compiled/css/site.css'
 
@@ -158,6 +158,6 @@ module.exports = (grunt) ->
 	grunt.registerTask 'default', ['jshint', 'coffeelint', 'clean:dist', 'copy', 'recess', 'concat', 'uncss', 'processhtml']#, 'cssmin', 'uglify' ]
 	
 	grunt.registerTask 'css', ['recess', 'concat:siteCss']
-	grunt.registerTask 'js', ['jshint', 'coffeelint', 'concat:bootstrapJs', 'concat:siteJs']
+	grunt.registerTask 'js', ['jshint', 'coffeelint', 'concat:siteJs']
 	grunt.registerTask 'html', ['uncss', 'processhtml']
 	grunt.registerTask 'img', ['clean:imgs', 'copy:assets']
