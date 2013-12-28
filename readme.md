@@ -9,17 +9,9 @@ Edit sites by renaming `/src/js/config.sites.js` to `/src/js/sites.js` and then 
 
 ### Designs
 
-#### Light
+#### Base (Light)
 
-![image](http://puu.sh/5rN8C.png)
-
-Change line 85 in Gruntfile.coffee to `'src/less/light.less'`
-
-#### Dark
-
-![image](http://puu.sh/5r05Q.png)
-
-Change line 85 in Gruntfile.coffee to `'src/less/dark.less'`
+![image](http://puu.sh/61hK3.png)
 
 
 ##### Remember to run `grunt` after every change!
