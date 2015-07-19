@@ -1,13 +1,13 @@
 # Start
-## A pretty simple Angular based Start Page for your web browser.
+## A React based Start Page for your web browser.
 
 ### Getting Started
 
-You'll need [Node](http://nodejs.org/) & [Grunt](http://gruntjs.com/) for this!
+You'll need [Node](http://nodejs.org/) & [Webpack](http://gruntjs.com/) for this!
 
-Just clone the repo, run `npm install` for dependencies and then `grunt`to compile.
+Just clone the repo and run `npm install` for dependencies.
 
-Edit sites by renaming `/src/js/config.sites.js` to `/src/js/sites.js` and then edit the sites.js file. It should be fairly easy to understand. The sites are split into Groups so each group has a name, inside a group you'll have links. Each link has a url and text that is displayed on the site.
+Next edit the data by renaming `_config.js` to `config.js` and then edit this file. It should be fairly easy to understand. The sites are split into Groups so each group has a name, inside a group you'll have links. Each link has a url and text that is displayed on the site. You'll also need to 
 
 To edit the markup of the site, edit `src/index.html` NOT `index.html`. The root file will be overwritten on every `grunt`. To edit the design just edit `site.less`.
 
