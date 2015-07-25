@@ -168,6 +168,7 @@ var App = React.createClass({
 				</div>
 				<div className="summary-area">
 					<div className="summary">
+						<h1 className="title text-center">スタート</h1>
 						<h2 className="text-center">Welcome...</h2>
 						<h1 className="text-center">{ Config.name }</h1>
 						<h3>
