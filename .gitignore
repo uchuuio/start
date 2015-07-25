@@ -31,8 +31,5 @@ Icon
 .Spotlight-V100
 .Trashes
 
-assets/
-
-index.html
-
-src/js/sites.js
+config.js
+dist
