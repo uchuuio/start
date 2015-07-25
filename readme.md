@@ -1,22 +1,47 @@
 # Start
-## A pretty simple Angular based Start Page for your web browser.
+## A React based Start Page for your web browser.
 
 ### Getting Started
 
-You'll need [Node](http://nodejs.org/) & [Grunt](http://gruntjs.com/) for this!
+You'll need [Node](http://nodejs.org/) & [Webpack](http://gruntjs.com/) for this!
 
-Just clone the repo, run `npm install` for dependencies and then `grunt`to compile.
+Just clone the repo and run `npm install` for dependencies.
 
-Edit sites by renaming `/src/js/config.sites.js` to `/src/js/sites.js` and then edit the sites.js file. It should be fairly easy to understand. The sites are split into Groups so each group has a name, inside a group you'll have links. Each link has a url and text that is displayed on the site.
+Next edit the data by renaming `example.config.js` to `config.js` and then edit this file. It should be fairly easy to understand but I'll break it down anyway.
 
-To edit the markup of the site, edit `src/index.html` NOT `index.html`. The root file will be overwritten on every `grunt`. To edit the design just edit `site.less`.
+`'name': '',` - Write the name you want to be identified by in the quotemarks.
 
-##### Remember to run `grunt` after every change!
+`'forecastApiKey': '',` - Get an API key from [Forecast.io](https://developer.forecast.io/) and put it in there if you want weather information.
+`'latitude': '51.5171',` - Add the latitude of the location you want to know the weather for. Can be left blank if you choose to let the app get your current location.
+`'longitude': '-0.1062',` - Add the longitude of the location you want to know the weather for. Can be left blank if you choose to let the app get your current location.
+`'units': '[celsius, fahrenheit]'` - Makes the weather information display in celsius or fahrenheit. Pick one and remove the square brackets.
 
-### Designs
+`'backgroundUrl': '[anything in src/img]',` - Set this to be the image name of any of the images in `src/img/`. As a base I've added `bamboo.jpeg`, `mountain.jpeg`, `sea.jpeg` & `night.jpeg`. You can add your own to this folder too.
 
-#### Base (Light)
+`'groupName': 'Social',` - The name for the following group of links
+`'url': 'http://twitter.com',` - The url for one of the links
+`'text': 'Twitter'` - The text for one of the links
 
-![image](http://puu.sh/61hOp.png)
+If you want to add another link to a group add the following after the last `}` before the `]` in the links array:
+```json
+, {
+	'url': '',
+	'text': ''
+}
+```
 
-Will work on it a bit more as everything can always be improved.
+To add another group add the following after the last `}` before the `]` in the sites array:
+
+```json
+, {
+	'groupName': '',
+	'links': [{
+		'url': '',
+		'text': ''
+	}]
+}
+```
+
+Once you've editied config.js as you want, run `webpack` in the root of the project to build the css/js and you're good to go!
+
+Check the following link for how to set it to be your start page: http://www.guidingtech.com/8004/have-new-tab-page-open-specific-website-firefox-chrome/
