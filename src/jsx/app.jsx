@@ -7,11 +7,14 @@ var stylesheet = require('../css/app.css');
 // Require our JS
 var React = require('react');
 var moment = require('moment');
-var request = require('superagent-charset');
-require('superagent-jsonp')(request);
+var $ = require('jquery');
 
 // Build our app
 var App = React.createClass({
+
+	/*
+	 * Get the initial state of the app
+	 */
 	getInitialState: function() {
 		return({
 			sites: Config.sites,
@@ -28,6 +31,9 @@ var App = React.createClass({
 		})
 	},
 
+	/*
+	 * Update the time every second
+	 */
 	updateTime: function() {
 		var that = this;
 		setInterval(function(){
@@ -36,7 +42,12 @@ var App = React.createClass({
 		}, 1000);
 	},
 
+	/*
+	 * Get the weather of the latitude & longitude.
+	 */
 	getWeather: function(latitude, longitude) {
+		var that = this;
+
 		var units;
 		var temperatureunit;
 
@@ -49,42 +60,64 @@ var App = React.createClass({
 			temperatureunit = '°C';
 		}
 
-		request
-			.get('https://api.forecast.io/forecast/'+ Config.location.forecastApiKey +'/'+ latitude +','+ longitude +'?&units='+ units)
-			.jsonp()
-			.end(function(err, res) {
-				var data = res.body;
+		$.ajax({
+			type: 'GET',
+			url: 'https://api.forecast.io/forecast/'+ Config.location.forecastApiKey +'/'+ latitude +','+ longitude +'?&units='+ units,
+			jsonpCallback: 'jsonCallback',
+			contentType: "application/json",
+			dataType: 'jsonp',
+			success: function(res) {
+				var data = res;
 
-				this.setState({
+				that.setState({
 					weather: {
 						enabled: true,
 						summary: data.currently.summary,
 						temperature: data.currently.apparentTemperature + temperatureunit
 					}
 				})
-			}.bind(this));
+			},
+			error: function(e) {
+				console.log(e.message);
+			}
+		});
 	},
 
+	/*
+	 * Get the thought of the day
+	 */
 	getThought: function() {
-		request
-			.get('http://zen-api.pagu.co/')
-			.charset('utf8')
-			.end(function(err, res) {
-				console.log(res);
-				var data = res.body;
+		var that = this;
+
+		$.ajax({
+			url: 'http://zen-api.pagu.co',
+			xhrFields: {
+				withCredentials: false
+			},
+			contentType: "application/json",
+			dataType: 'json',
+			success: function(res) {
+				var data = res;
 
 				var enThought = data.thought_en.replace('|', '<br />');
 				var jpThought = data.thought_jp.replace('|', '<br />');
 
-				this.setState({
+				that.setState({
 					thought: {
 						en: enThought,
 						jp: jpThought
 					}
 				})
-			});
+			},
+			error: function(e) {
+				console.log(e.message);
+			}
+		});
 	},
 
+	/*
+	 * Get the weather, update time & get the thought as soon as the component has mounted
+	 */
 	componentDidMount: function() {
 		var that = this;
 
@@ -104,6 +137,9 @@ var App = React.createClass({
 		this.updateTime();
 	},
 
+	/*
+	 * Render the app
+	 */
 	render: function() {
 		var groups = this.state.sites.map(function(group, i){
 
@@ -140,8 +176,12 @@ var App = React.createClass({
 						</h3>
 						<hr />
 						<h3>Thought of the day</h3>
-						<p>{ this.state.thought.jp }</p>
-						<p>{ this.state.thought.en }</p>
+						<p dangerouslySetInnerHTML={{
+							__html: this.state.thought.jp
+						}}></p>
+						<p dangerouslySetInnerHTML={{
+							__html: this.state.thought.en
+						}}></p>
 					</div>
 				</div>
 			</section>
