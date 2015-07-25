@@ -1,6 +1,8 @@
 # Start
 ## A React based Start Page for your web browser.
 
+![Night Theme](http://i.imgur.com/B7KejMM.jpg)
+
 ### Getting Started
 
 You'll need [Node](http://nodejs.org/) & [Webpack](http://gruntjs.com/) for this!
