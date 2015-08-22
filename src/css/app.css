@@ -28,7 +28,7 @@ section {
 .site a {
 	background: #FFF;
 	border: 1px solid #FCFAF2;
-	border-radius: 5px;
+	border-radius: 50%;
 	color: #C73E3A;
 	float: left;
 	lost-align: center;
