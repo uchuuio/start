@@ -12,6 +12,7 @@ var SiteArea = require('./components/site-area.jsx');
 var Time = require('./components/time.jsx');
 var Weather = require('./components/weather.jsx');
 var Thought = require('./components/thought.jsx');
+var Wanikani = require('./components/wanikani.jsx');
 
 // Build our app
 var App = React.createClass({
@@ -32,6 +33,7 @@ var App = React.createClass({
 							<Weather />
 						</h3>
 						<Thought />
+						<Wanikani />
 					</div>
 				</div>
 			</section>

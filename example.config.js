@@ -6,6 +6,7 @@ var Config = {
 		'longitude': '-0.1062',
 		'units': '[celsius, fahrenheit]'
 	},
+	'wanikaniApiKey': '',
 	'backgroundUrl': '[anything in src/img]',
 	'sites': [{
 		'groupName': 'Social',
