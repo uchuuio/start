@@ -1,7 +1,7 @@
 # Start
 ## A React based Start Page for your web browser.
 
-![Night Theme](http://i.imgur.com/B7KejMM.jpg)
+![Personal Theme](http://anoxy.se/uploads/2015/08/3jfgoc2h80r17la.png)
 
 ### Getting Started
 
