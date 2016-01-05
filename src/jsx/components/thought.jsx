@@ -27,7 +27,7 @@ var Thought = React.createClass({
 		var that = this;
 
 		$.ajax({
-			url: 'http://zen-api.pagu.co',
+			url: 'https://zen-api.pagu.co',
 			xhrFields: {
 				withCredentials: false
 			},
