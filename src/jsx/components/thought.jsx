@@ -1,81 +1,58 @@
-// Config File
-var Config = require('../../../config.js');
+import React from 'react';
 
-// Require our JS
-var React = require('react');
-var $ = require('jquery');
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
+const state = {
+	thought: {
+		en: '',
+		jp: '',
+	},
+};
 
 // Build our app
-var Thought = React.createClass({
+class Thought extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = state;
+	}
 
-	/*
-	 * Get the initial state of the app
-	 */
-	getInitialState: function() {
-		return({
-			thought: {
-				en: '',
-				jp: ''
-			},
-		})
-	},
+	componentDidMount() {
+		// this.getThought();
+		fetch('https://zen-api.pagu.co')
+			.then((response) => response.json())
+			.then((data) => {
+				const enThought = data.thought_en.replace(/\|/g, '<br />');
+				const jpThought = data.thought_jp.replace(/\|/g, '<br />');
 
-	/*
-	 * Get the thought of the day
-	 */
-	getThought: function() {
-		var that = this;
-
-		$.ajax({
-			url: 'https://zen-api.pagu.co',
-			xhrFields: {
-				withCredentials: false
-			},
-			contentType: "application/json",
-			dataType: 'json',
-			success: function(res) {
-				var data = res;
-
-				var enThought = data.thought_en.replace(/\|/g, '<br />');
-				var jpThought = data.thought_jp.replace(/\|/g, '<br />');
-
-				that.setState({
+				this.setState({
 					thought: {
 						en: enThought,
-						jp: jpThought
-					}
-				})
-			},
-			error: function(e) {
-				console.log(e.message);
-			}
-		});
-	},
-
-	/*
-	 * Get thought as soon as the component has mounted
-	 */
-	componentDidMount: function() {
-		this.getThought();
-	},
+						jp: jpThought,
+					},
+				});
+			});
+	}
 
 	/*
 	 * Render the app
 	 */
-	render: function() {
+	render() {
 		return (
 			<div className={ (this.state.thought.en !== '') ? 'thought' : 'thought hide'}>
 				<hr />
 				<h3>Thought of the day</h3>
 				<p dangerouslySetInnerHTML={{
-					__html: this.state.thought.jp
-				}}></p>
+					__html: this.state.thought.jp,
+				}}
+				></p>
 				<p dangerouslySetInnerHTML={{
-					__html: this.state.thought.en
-				}}></p>
+					__html: this.state.thought.en,
+				}}
+				></p>
 			</div>
 		);
 	}
-});
+}
 
-module.exports = Thought;
+export default Thought;

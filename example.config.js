@@ -1,4 +1,4 @@
-var Config = {
+export default var Config = {
 	name: '',
 	location: {
 		forecastApiKey: '',
@@ -46,5 +46,3 @@ var Config = {
 		}]
 	}]
 };
-
-module.exports = Config;

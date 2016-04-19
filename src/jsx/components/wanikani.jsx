@@ -1,68 +1,47 @@
-// Config File
-var Config = require('../../../config.js');
+import Config from './../../../config';
 
-// Require our JS
-var React = require('react');
-var moment = require('moment');
-var $ = require('jquery');
+import React from 'react';
+import moment from 'moment';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
+const state = {
+	wanikani: {
+		enabled: false,
+		data: {},
+	},
+};
 
 // Build our app
-var Wanikani = React.createClass({
+class Wanikani extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = state;
+	}
 
-	/*
-	 * Get the initial state of the app
-	 */
-	getInitialState: function() {
-		return({
-			wanikani: {
-				enabled: false,
-				data: {},
-			}
-		})
-	},
-
-	/*
-	 * Get the weather of the latitude & longitude.
-	 */
-	getStudyQueue: function(apiKey) {
-		var that = this;
-
-		$.ajax({
-			type: 'GET',
-			url: 'https://www.wanikani.com/api/user/'+apiKey+'/study-queue',
-			jsonpCallback: 'jsonCallback',
-			contentType: "application/json",
-			dataType: 'jsonp',
-			success: function(res) {
-				var data = res.requested_information;
-
-				that.setState({
-					wanikani: {
-						enabled: true,
-						data: data
-					}
-				})
-			},
-			error: function(e) {
-				console.log(e.message);
-			}
-		});
-	},
-
-	/*
-	 * Get the weather as soon as the component has mounted
-	 */
-	componentDidMount: function() {
+	componentDidMount() {
 		if (Config.wanikaniApiKey !== '') {
-
 			this.getStudyQueue(Config.wanikaniApiKey);
 		}
-	},
+	}
 
-	/*
-	 * Render the app
-	 */
-	render: function() {
+	getStudyQueue(apiKey) {
+		const that = this;
+
+		fetch(`https://www.wanikani.com/api/user/${apiKey}/study-queue`)
+		.then((response) => response.json())
+		.then((res) => {
+			const data = res.requested_information;
+			that.setState({
+				wanikani: {
+					enabled: true,
+					data,
+				},
+			});
+		});
+	}
+
+	render() {
 		return (
 			<div className={ (this.state.wanikani.enabled) ? 'wanikani' : 'wanikani hide' }>
 				<hr />
@@ -71,6 +50,6 @@ var Wanikani = React.createClass({
 			</div>
 		);
 	}
-});
+}
 
-module.exports = Wanikani;
+export default Wanikani;

@@ -1,42 +1,34 @@
-// Config File
-var Config = require('../../../config.js');
+import React from 'react';
 
-// Require our JS
-var React = require('react');
+const propTypes = {
+	sites: React.PropTypes.array.isRequired,
+};
 
-// Build our app
-var SiteArea = React.createClass({
-
-	/*
-	 * Render the app
-	 */
-	render: function() {
-		var groups = this.props.sites.map(function(group, i){
-
-			var sites = group.links.map(function(site, i) {
-				return(
-					<div key={i} className="site">
-						<a href={ site.url } title={ site.text }><span>{ site.text }</span></a>
-					</div>
-				);
-			});
-
-			return(
-				<div key={i} className="site-group">
-					<h3>{ group.groupName }</h3>
-					{ sites }
-				</div>
-			);
-		});
+function SiteArea({ sites }) {
+	const groups = sites.map((group, i) => {
+		const siteList = group.links.map((site, n) => (
+			<div key={n} className="site">
+				<a href={ site.url } title={ site.text }><span>{ site.text }</span></a>
+			</div>
+		));
 
 		return (
-			<div className="sites-area">
-				<div className="sites">
-					{ groups }
-				</div>
+			<div key={i} className="site-group">
+				<h3>{ group.groupName }</h3>
+				{ siteList }
 			</div>
 		);
-	}
-});
+	});
 
-module.exports = SiteArea;
+	return (
+		<div className="sites-area">
+			<div className="sites">
+				{ groups }
+			</div>
+		</div>
+	);
+}
+
+SiteArea.propTypes = propTypes;
+
+export default SiteArea;
