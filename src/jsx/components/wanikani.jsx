@@ -2,8 +2,10 @@ import Config from './../../../config';
 
 import React from 'react';
 import moment from 'moment';
+
 require('es6-promise').polyfill();
-require('isomorphic-fetch');
+import fetchJsonp from 'fetch-jsonp';
+
 
 const state = {
 	wanikani: {
@@ -28,7 +30,7 @@ class Wanikani extends React.Component {
 	getStudyQueue(apiKey) {
 		const that = this;
 
-		fetch(`https://www.wanikani.com/api/user/${apiKey}/study-queue`)
+		fetchJsonp(`https://www.wanikani.com/api/user/${apiKey}/study-queue`)
 		.then((response) => response.json())
 		.then((res) => {
 			const data = res.requested_information;

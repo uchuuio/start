@@ -1,8 +1,9 @@
 import Config from './../../../config';
 
 import React from 'react';
+
 require('es6-promise').polyfill();
-require('isomorphic-fetch');
+import fetchJsonp from 'fetch-jsonp';
 
 const state = {
 	weather: {
@@ -49,7 +50,7 @@ class Weather extends React.Component {
 			temperatureunit = '°C';
 		}
 
-		fetch(`https://api.forecast.io/forecast/${Config.location.forecastApiKey}/${latitude},${longitude}?&units=${units}`)
+		fetchJsonp(`https://api.forecast.io/forecast/${Config.location.forecastApiKey}/${latitude},${longitude}?&units=${units}`)
 			.then((response) => response.json())
 			.then((data) => {
 				that.setState({
