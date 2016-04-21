@@ -1,48 +1,49 @@
-// Config File
-var Config = require('../../../config.js');
+import React from 'react';
+import moment from 'moment';
+import { StyleSheet } from 'react-look';
 
-// Require our JS
-var React = require('react');
-var moment = require('moment');
+const state = {
+	time: moment().format('MMMM Do YYYY, h:mm:ss a'),
+};
 
-// Build our app
-var Time = React.createClass({
+const hour = moment().hour();
+let timeOfDay;
+if (hour >= 5 && hour < 11) {
+	timeOfDay = 'morning';
+} else if (hour >= 11 && hour < 17) {
+	timeOfDay = 'day';
+} else if (hour >= 17 && hour < 20) {
+	timeOfDay = 'evening';
+} else {
+	timeOfDay = 'night';
+}
 
-	/*
-	 * Get the initial state of the app
-	 */
-	getInitialState: function() {
-		return({
-			time: moment().format('MMMM Do YYYY, h:mm:ss a'),
-		})
+StyleSheet.toCSS({
+	body: {
+		background: `url("https://source.unsplash.com/featured/1920x1080/?${timeOfDay}") fixed 0/cover no-repeat transparent`,
 	},
+});
 
-	/*
-	 * Update the time every second
-	 */
-	updateTime: function() {
-		var that = this;
-		setInterval(function(){
-			var timenow = moment().format('MMMM Do YYYY, h:mm:ss a');
-			that.setState({time: timenow});
+class Time extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = state;
+	}
+
+	componentDidMount() {
+		setInterval(() => {
+			const timenow = moment().format('MMMM Do YYYY, h:mm:ss a');
+			this.setState({
+				time: timenow,
+			});
 		}, 1000);
-	},
+	}
 
-	/*
-	 * Update the time as soon as the component has mounted
-	 */
-	componentDidMount: function() {
-		this.updateTime();
-	},
-
-	/*
-	 * Render the app
-	 */
-	render: function() {
+	render() {
 		return (
 			<span className="time">It is currently <b>{ this.state.time }</b></span>
 		);
 	}
-});
+}
 
-module.exports = Time;
+export default Time;

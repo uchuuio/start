@@ -1,4 +1,4 @@
-var Config = {
+export default var Config = {
 	name: '',
 	location: {
 		forecastApiKey: '',
@@ -7,7 +7,6 @@ var Config = {
 		units: '[celsius, fahrenheit]'
 	},
 	wanikaniApiKey: '',
-	backgroundUrl: '[anything in src/img]',
 	sites: [{
 		groupName: 'Social',
 		links: [{
@@ -46,5 +45,3 @@ var Config = {
 		}]
 	}]
 };
-
-module.exports = Config;

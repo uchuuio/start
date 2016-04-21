@@ -1,36 +1,37 @@
-// Load out PostCSS Modules
-var cssnano = require('cssnano');
-var lost = require('lost');
-var vars = require('postcss-simple-vars');
-var assets  = require('postcss-assets');
+const webpack = require('webpack');
 
-// Get our Theme Colors
-var Config = require('./config.js');
-
-// Webpack Setup
 module.exports = {
-	entry: "./src/jsx/app.jsx",
+	entry: './src/jsx/app.jsx',
+
 	output: {
-		path: "./dist/js/",
-		filename: "app.js",
+		path: `${__dirname}/assets/js`,
+		filename: 'bundle.js',
 	},
+
+	plugins: [
+		new webpack.DefinePlugin({
+			NODE_ENV: 'production',
+		}),
+	],
 
 	module: {
+		preLoaders: [
+			{
+				test: /\.(js|jsx)$/,
+				loader: 'eslint-loader',
+				exclude: /node_modules/,
+			},
+		],
 		loaders: [
-			{ test: /\.jsx$/, exclude: /node_modules/, loader: "babel-loader" },
-			{ test: /\.css$/, loader: "style-loader!css-loader!postcss-loader" },
-			{ test: /\.json$/, loader: "json" }
-		]
+			{
+				test: /\.(js|jsx)$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/,
+			},
+			{
+				test: /\.jpg$/,
+				loader: 'file-loader',
+			},
+		],
 	},
-
-	postcss: function () {
-		return [
-			vars({ variables: { backgroundUrl: Config.backgroundUrl } }),
-			assets({
-				loadPaths: ['src/img/']
-			}),
-			cssnano,
-			lost
-		];
-	}
 };

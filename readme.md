@@ -1,7 +1,7 @@
 # Start
 ## A React based Start Page for your web browser.
 
-![Personal Theme](http://anoxy.se/uploads/2015/08/3jfgoc2h80r17la.png)
+![New Look](https://tomo.pagu.co/assets/images/projects/start.png)
 
 ### Getting Started
 
@@ -19,8 +19,6 @@ Next edit the data by renaming `example.config.js` to `config.js` and then edit 
 `'units': '[celsius, fahrenheit]'` - Makes the weather information display in celsius or fahrenheit. Pick one and remove the square brackets.
 
 `'wanikaniApiKey': '',` - Get an API key from [wanikani.com](https://wanikani.com/) and put it in there if you want to get details on how many lessons & reviews are available and when more reviews will become available.
-
-`'backgroundUrl': '[anything in src/img]',` - Set this to be the image name of any of the images in `src/img/`. As a base I've added `bamboo.jpeg`, `mountain.jpeg`, `sea.jpeg` & `night.jpeg`. You can add your own to this folder too.
 
 `'groupName': 'Social',` - The name for the following group of links
 `'url': 'http://twitter.com',` - The url for one of the links
