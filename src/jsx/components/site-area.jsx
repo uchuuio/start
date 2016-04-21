@@ -1,8 +1,17 @@
 import React from 'react';
+import { Flex, Box } from 'reflexbox';
+import { StyleSheet } from 'react-look';
 
 const propTypes = {
 	sites: React.PropTypes.array.isRequired,
 };
+
+StyleSheet.toCSS({
+	'.site-group h3': {
+		borderBottom: '5px solid #aa201d',
+		paddingBottom: 5,
+	},
+});
 
 function SiteArea({ sites }) {
 	const groups = sites.map((group, i) => {
@@ -13,18 +22,18 @@ function SiteArea({ sites }) {
 		));
 
 		return (
-			<div key={i} className="site-group">
+			<Box key={i} px={2} col={4} className="site-group">
 				<h3>{ group.groupName }</h3>
 				{ siteList }
-			</div>
+			</Box>
 		);
 	});
 
 	return (
 		<div className="sites-area">
-			<div className="sites">
+			<Flex >
 				{ groups }
-			</div>
+			</Flex>
 		</div>
 	);
 }
