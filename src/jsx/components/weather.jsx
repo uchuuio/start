@@ -65,7 +65,10 @@ class Weather extends React.Component {
 
 	render() {
 		return (
-			<span className={ (this.state.weather.enabled) ? '' : 'hide' }> and the weather outside is { this.state.weather.temperature } &amp; { this.state.weather.summary }. <small>Weather data provided by <a href="http://forecast.io" title="Forecast.io">forecast.io</a></small></span>
+			<span className={ (this.state.weather.enabled) ? '' : 'hide' }>
+				&nbsp;and the weather outside is { this.state.weather.temperature }
+				&nbsp;&amp; { this.state.weather.summary }.
+			</span>
 		);
 	}
 }
