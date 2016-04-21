@@ -40,7 +40,6 @@ class Thought extends React.Component {
 	render() {
 		return (
 			<div className={ (this.state.thought.en !== '') ? 'thought' : 'thought hide'}>
-				<hr />
 				<h3>Thought of the day</h3>
 				<p dangerouslySetInnerHTML={{
 					__html: this.state.thought.jp,
