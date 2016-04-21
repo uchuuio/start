@@ -7,7 +7,6 @@ export default var Config = {
 		units: '[celsius, fahrenheit]'
 	},
 	wanikaniApiKey: '',
-	backgroundUrl: '[anything in src/img]',
 	sites: [{
 		groupName: 'Social',
 		links: [{

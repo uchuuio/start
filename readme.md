@@ -20,8 +20,6 @@ Next edit the data by renaming `example.config.js` to `config.js` and then edit 
 
 `'wanikaniApiKey': '',` - Get an API key from [wanikani.com](https://wanikani.com/) and put it in there if you want to get details on how many lessons & reviews are available and when more reviews will become available.
 
-`'backgroundUrl': '[anything in src/img]',` - Set this to be the image name of any of the images in `src/img/`. As a base I've added `bamboo.jpeg`, `mountain.jpeg`, `sea.jpeg` & `night.jpeg`. You can add your own to this folder too.
-
 `'groupName': 'Social',` - The name for the following group of links
 `'url': 'http://twitter.com',` - The url for one of the links
 `'text': 'Twitter'` - The text for one of the links
