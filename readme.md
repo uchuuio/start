@@ -1,7 +1,7 @@
 # Start
 ## A React based Start Page for your web browser.
 
-![Personal Theme](http://anoxy.se/uploads/2015/08/3jfgoc2h80r17la.png)
+![New Look](https://tomo.pagu.co/assets/images/projects/start.png)
 
 ### Getting Started
 
