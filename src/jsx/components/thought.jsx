@@ -18,8 +18,7 @@ class Thought extends React.Component {
 	}
 
 	componentDidMount() {
-		// this.getThought();
-		fetch('https://zen-api.pagu.co')
+		fetch('https://zen.pagu.co/api')
 			.then((response) => response.json())
 			.then((data) => {
 				const enThought = data.thought_en.replace(/\|/g, '<br />');
