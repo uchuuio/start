@@ -13,7 +13,7 @@ import SiteArea from './components/site-area.jsx';
 import Time from './components/time.jsx';
 import Weather from './components/weather.jsx';
 import Thought from './components/thought.jsx';
-import Wanikani from './components/wanikani.jsx';
+import Currency from './components/currency.jsx';
 
 const styles = StyleSheet.create({
 	container: {
@@ -67,7 +67,7 @@ function App() {
 						<Thought />
 					</Box>
 					<Box px={2} col={8}>
-						<Wanikani />
+						<Currency />
 					</Box>
 				</Flex>
 			</Box>

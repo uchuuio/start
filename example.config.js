@@ -1,47 +1,51 @@
-export default var Config = {
+const Config = {
 	name: '',
 	location: {
 		forecastApiKey: '',
 		latitude: '51.5171',
 		longitude: '-0.1062',
-		units: '[celsius, fahrenheit]'
+		units: '[celsius, fahrenheit]',
 	},
 	wanikaniApiKey: '',
+	currency: {
+		source: 'GBP',
+		target: 'JPY,USD',
+	},
 	sites: [{
 		groupName: 'Social',
 		links: [{
 			url: 'http://twitter.com',
-			text: 'Twitter'
+			text: 'Twitter',
 		}, {
 			url: 'http://youtube.com',
-			text: 'Youtube'
+			text: 'Youtube',
 		}, {
 			url: 'http://twitch.tv',
-			text: 'Twitch'
+			text: 'Twitch',
 		}, {
 			url: 'http://facebook.com',
-			text: 'Facebook'
-		}]
+			text: 'Facebook',
+		}],
 	}, {
 		groupName: 'News',
 		links: [{
 			url: 'http://theguardian.com/uk',
-			text: 'The Guardian'
+			text: 'The Guardian',
 		}, {
 			url: 'http://news.ycombinator.com',
-			text: 'Hacker News'
+			text: 'Hacker News',
 		}, {
 			url: 'http://natalie.mu/',
-			text: 'Natalie'
-		}]
+			text: 'Natalie',
+		}],
 	}, {
 		groupName: 'WebDev',
 		links: [{
 			url: 'http://github.com/',
-			text: 'Github'
+			text: 'Github',
 		}, {
 			url: 'https://facebook.github.io/react/',
-			text: 'ReactJS'
-		}]
-	}]
+			text: 'ReactJS',
+		}],
+	}],
 };
