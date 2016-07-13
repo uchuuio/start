@@ -31,7 +31,7 @@ function SiteArea({ sites }) {
 
 	return (
 		<div className="sites-area">
-			<Flex >
+			<Flex>
 				{ groups }
 			</Flex>
 		</div>
