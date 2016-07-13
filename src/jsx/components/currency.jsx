@@ -35,7 +35,7 @@ class Currency extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch(`http://api.fixer.io/latest?base=${Config.currency.source}&symbols=${Config.currency.target}`)
+		fetch(`https://api.fixer.io/latest?base=${Config.currency.source}&symbols=${Config.currency.target}`)
 		.then((response) => response.json())
 		.then((res) => {
 			const rates = createFragment(res.rates);
