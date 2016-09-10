@@ -51,7 +51,6 @@ class Currency extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.currency); // eslint-disable-line
 		return (
 			<div className={ (this.state.currency.enabled) ? 'currency' : 'currency hide' }>
 				<h3>Currency</h3>
