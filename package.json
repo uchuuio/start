@@ -10,7 +10,7 @@
   "scripts": {
     "run": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --inline",
     "build": "./node_modules/webpack/bin/webpack.js -p --config webpack.config.js",
-    "start": "node node_modules/http-server/bin/http-server -p 5000"
+    "deploy": "npm run build && ns ."
   },
   "license": "WTFPL (Do What the Fuck You Want to Public License)",
   "dependencies": {
