@@ -13,7 +13,7 @@ Next edit the data by renaming `example.config.js` to `config.js` and then edit 
 
 `'name': '',` - Write the name you want to be identified by in the quotemarks.
 
-`'forecastApiKey': '',` - Get an API key from [Forecast.io](https://developer.forecast.io/) and put it in there if you want weather information.
+`'forecastApiKey': '',` - Get an API key from [DarkSky](https://developer.darksky.net/) and put it in there if you want weather information.
 `'latitude': '51.5171',` - Add the latitude of the location you want to know the weather for. Can be left blank if you choose to let the app get your current location.
 `'longitude': '-0.1062',` - Add the longitude of the location you want to know the weather for. Can be left blank if you choose to let the app get your current location.
 `'units': '[celsius, fahrenheit]'` - Makes the weather information display in celsius or fahrenheit. Pick one and remove the square brackets.
