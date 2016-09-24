@@ -34,3 +34,4 @@ Icon
 config.js
 dist
 assets/js/bundle.js
+/jspm_packages

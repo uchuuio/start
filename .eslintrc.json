@@ -3,6 +3,6 @@
     "extends": "airbnb",
     "rules": {
         "indent": ["error", "tab"],
-        "react/jsx-indent-props": ["error", "tab"],
+        "react/jsx-indent-props": ["error", "tab"]
     }
 }
