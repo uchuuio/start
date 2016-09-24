@@ -6,7 +6,6 @@ const Config = {
 		longitude: '-0.1062',
 		units: '[celsius, fahrenheit]',
 	},
-	wanikaniApiKey: '',
 	currency: {
 		source: 'GBP',
 		target: 'JPY,USD',

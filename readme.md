@@ -18,8 +18,6 @@ Next edit the data by renaming `example.config.js` to `config.js` and then edit 
 `'longitude': '-0.1062',` - Add the longitude of the location you want to know the weather for. Can be left blank if you choose to let the app get your current location.
 `'units': '[celsius, fahrenheit]'` - Makes the weather information display in celsius or fahrenheit. Pick one and remove the square brackets.
 
-`'wanikaniApiKey': '',` - Get an API key from [wanikani.com](https://wanikani.com/) and put it in there if you want to get details on how many lessons & reviews are available and when more reviews will become available.
-
 `'groupName': 'Social',` - The name for the following group of links
 `'url': 'http://twitter.com',` - The url for one of the links
 `'text': 'Twitter'` - The text for one of the links
