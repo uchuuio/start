@@ -19,6 +19,7 @@
       "react-addons-create-fragment": "npm:react-addons-create-fragment@^15.3.2",
       "react-dom": "npm:react-dom@^15.3.2",
       "react-look": "npm:react-look@^1.0.1",
+      "react-skycons": "npm:react-skycons@^0.3.0",
       "reflexbox": "npm:reflexbox@^2.2.1"
     },
     "devDependencies": {

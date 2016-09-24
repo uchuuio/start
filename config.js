@@ -28,6 +28,7 @@ System.config({
     "react-addons-create-fragment": "npm:react-addons-create-fragment@15.3.2",
     "react-dom": "npm:react-dom@15.3.2",
     "react-look": "npm:react-look@1.0.1",
+    "react-skycons": "npm:react-skycons@0.3.0",
     "reflexbox": "npm:reflexbox@2.2.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
@@ -236,6 +237,12 @@ System.config({
       "react": "npm:react@15.3.2",
       "react-dom": "npm:react-dom@15.3.2",
       "react-look-core": "npm:react-look-core@1.0.1"
+    },
+    "npm:react-skycons@0.3.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react": "npm:react@15.3.2",
+      "react-dom": "npm:react-dom@15.3.2",
+      "skycons": "npm:skycons@1.0.0"
     },
     "npm:react@15.3.2": {
       "fbjs": "npm:fbjs@0.8.4",
