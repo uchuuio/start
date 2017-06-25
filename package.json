@@ -1,31 +1,18 @@
 {
   "name": "start",
-  "version": "5.0.0",
-  "author": "Tomo <@tomopagu>",
-  "description": "A React Based Browser Start Page",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tomopagu/start.git"
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
-  "license": "WTFPL (Do What the Fuck You Want to Public License)",
-  "jspm": {
-    "dependencies": {
-      "es6-promise": "npm:es6-promise@^3.3.1",
-      "fetch-jsonp": "npm:fetch-jsonp@^1.0.1",
-      "isomorphic-fetch": "npm:isomorphic-fetch@^2.2.1",
-      "lodash": "npm:lodash@^4.16.1",
-      "moment": "npm:moment@^2.15.1",
-      "react": "npm:react@^15.3.2",
-      "react-addons-create-fragment": "npm:react-addons-create-fragment@^15.3.2",
-      "react-dom": "npm:react-dom@^15.3.2",
-      "react-look": "npm:react-look@^1.0.1",
-      "react-skycons": "npm:react-skycons@^0.3.0",
-      "reflexbox": "npm:reflexbox@^2.2.1"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
