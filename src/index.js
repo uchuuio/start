@@ -1,8 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom';
+import { compose, createStore } from 'redux';
+import persistState from 'redux-localstorage'
+import { Provider } from 'react-redux';
+import App from './components/App';
+import reducer from './reducers/links';
 import registerServiceWorker from './registerServiceWorker';
-import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(
+  // persistState(null, {
+  //   key: 'starttab',
+  // }),
+));
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
