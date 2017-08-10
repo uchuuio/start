@@ -12,3 +12,12 @@ Head to the website and click the cog to open the settings modal. Here you can c
 You'll need [Node](http://nodejs.org/)!
 
 Just clone the repo and run `npm install` (or `yarn install`) for dependencies, we use the excellant create-react-app as a base.
+
+### TODO
+
+* Needs Icons/Styling
+* Integrate zen
+* Integrate Fixer.io (Currency)
+* Integrate Date/Time
+* Integrate Weather
+* Integrate Wanikani
