@@ -6,7 +6,7 @@ import Link from './Link';
 
 const Links = ({ groups, links }) => (
     <div>
-        {groups.map((links, group) => {
+        {groups.map((links) => {
             return (
                 <ul key={links[0].group}>
                     <li>{links[0].group}</li>
@@ -20,7 +20,7 @@ const Links = ({ groups, links }) => (
 )
 
 const mapStateToProps = state => {
-    let groups = _.groupBy(state.links, 'group');
+    let groups = _.groupBy(state.groups.links, 'group');
     groups = _.toArray(groups);
     
     return {

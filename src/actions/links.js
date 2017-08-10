@@ -11,7 +11,7 @@ export const addLink = (group, color, text, link) => {
   };
 };
 
-export const removeLink = id => {
+export const removeLink = (id) => {
   return {
     type: 'REMOVE_LINK',
     id: id,

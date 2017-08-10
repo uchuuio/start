@@ -4,7 +4,7 @@ import { compose, createStore } from 'redux';
 import persistState from 'redux-localstorage'
 import { Provider } from 'react-redux';
 import App from './components/App';
-import reducer from './reducers/links';
+import reducer from './reducers/groups';
 import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

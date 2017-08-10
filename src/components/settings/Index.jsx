@@ -61,9 +61,9 @@ class Settings extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {links.map(link => (
-                                <SettingsLink key={link.id} {...link} />
-                            ))}
+                            {links.map(link => {
+                                return (<SettingsLink key={link.id.toString()} {...link} />)
+                            })}
                         </tbody>
                         <thead>
                             <tr>
@@ -81,10 +81,12 @@ class Settings extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        links: state.links
+        links: state.groups.links
     }
 };
 
-export default connect(mapStateToProps)(Settings);
+export default connect(
+    mapStateToProps
+)(Settings);
