@@ -1,68 +1,112 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addLink } from '../../actions/links';
 
-let AddLink = ({ dispatch }) => {
-  let group;
-  let color;
-  let text;
-  let link;
+import { Button, Input, Row, Column } from 'rebass';
+import styled from 'styled-components';
+const EqualHeightInputs = styled(Input)`
+  height: 24px;
+`;
+const AddLinkButton = styled(Button)`
+  cursor: pointer;
+`;
 
-  return (
-    <div>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          if (!group.value.trim()) {
-            return;
-          };
-          if (!color.value.trim()) {
-            return;
-          };
-          if (!text.value.trim()) {
-            return;
-          };
-          if (!link.value.trim()) {
-            return;
-          };
-          dispatch(addLink(group.value, color.value, text.value, link.value));
-          group.value = '';
-          color.value = '';
-          text.value = '';
-          link.value = '';
-        }}
-      >
-        <input
-          ref={node => {
-            group = node
-          }}
-          placeholder="Group"
-        />
-        <input
-          ref={node => {
-            color = node
-          }}
-          placeholder="Color"
-        />
-        <input
-          ref={node => {
-            text = node
-          }}
-          placeholder="Text"
-        />
-        <input
-          ref={node => {
-            link = node
-          }}
-          placeholder="URL"
-        />
-        <button type="submit">
-          Add Link
-        </button>
+class AddLinkForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      group: '',
+      color: '',
+      text: '',
+      link: '',
+    };
+
+    this.handleChanges = this.handleChanges.bind(this);
+    this.addLink = this.addLink.bind(this);
+  }
+
+  addLink(event) {
+    event.preventDefault();
+    this.props.addLinkDispatch(
+      this.state.group,
+      this.state.color,
+      this.state.text,
+      this.state.link
+    );
+    this.setState({
+      group: '',
+      color: '',
+      text: '',
+      link: '',
+    })
+  }
+
+  handleChanges(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render() {
+    return (
+
+      <form onSubmit={this.addLink}>
+        <Row>
+          <Column mb={0}>
+            <EqualHeightInputs
+              value={this.state.group}
+              onChange={this.handleChanges}
+              name="group"
+              placeholder="Group"
+            />
+          </Column>
+          <Column mb={0}>
+            <EqualHeightInputs
+              value={this.state.color}
+              onChange={this.handleChanges}
+              name="color"
+              placeholder="Color"
+            />
+          </Column>
+          <Column mb={0}>
+            <EqualHeightInputs
+              value={this.state.text}
+              onChange={this.handleChanges}
+              name="text"
+              placeholder="Text"
+            />
+          </Column>
+          <Column mb={0}>
+            <EqualHeightInputs
+              value={this.state.link}
+              onChange={this.handleChanges}
+              name="link"
+              placeholder="URL"
+            />
+          </Column>
+          <Column mb={0}>
+            <AddLinkButton width={1} type="submit">Add Link</AddLinkButton>
+          </Column>
+        </Row>
       </form>
-    </div>
-  )
-};
-AddLink = connect()(AddLink);
+    );
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addLinkDispatch: (group, color, text, link) => {
+      dispatch(addLink(group, color, text, link));
+    }
+  }
+}
+const AddLink = connect(
+  null,
+  mapDispatchToProps
+)(AddLinkForm)
 
 export default AddLink;
