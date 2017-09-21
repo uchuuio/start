@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axs": "^2.0.0-1",
+    "date-fns": "^1.28.5",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
