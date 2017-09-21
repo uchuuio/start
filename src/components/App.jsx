@@ -31,7 +31,7 @@ class App extends Component {
   componentDidMount() {
     this.gradientID = setInterval(
       () => this.gradientPicker(),
-      10000
+      30000
     );
   }
 
