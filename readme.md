@@ -5,7 +5,7 @@
 
 ### How to use
 
-Head to the website and click the cog to open the settings modal. Here you can configure the start page to be how you want it with custom links and widgets. Once you're happy and you can set it up as your new tab page by following the steps here: http://www.guidingtech.com/8004/have-new-tab-page-open-specific-website-firefox-chrome/
+Head to the website and click the settings button in bottom right to open the settings modal. Here you can configure the start page to be how you want it with custom links and widgets. Once you're happy and you can set it up as your new tab page by following the steps here: http://www.guidingtech.com/8004/have-new-tab-page-open-specific-website-firefox-chrome/
 
 ### Building
 
@@ -16,8 +16,5 @@ Just clone the repo and run `npm install` (or `yarn install`) for dependencies, 
 ### TODO
 
 * Needs Icons/Styling
-* Integrate zen
-* Integrate Fixer.io (Currency)
-* Integrate Date/Time
 * Integrate Weather
 * Integrate Wanikani
