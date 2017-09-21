@@ -66,7 +66,7 @@ class App extends Component {
         <Settings />
 
         <Flex>
-          <Box p={2} width={(1 + Math.sqrt(5)) / 2 - 1}>
+          <Box pr={2} width={(1 + Math.sqrt(5)) / 2 - 1}>
             <Links />
           </Box>
           <Box p={2} width={1 - ((1 + Math.sqrt(5)) / 2 - 1)}>

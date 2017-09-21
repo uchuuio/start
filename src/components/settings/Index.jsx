@@ -23,6 +23,12 @@ const CloseButton = styled(Close)`
     cursor: pointer;
 `;
 
+const StyledTh = styled.th`
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+`
+
 class Settings extends Component {
     constructor () {
         super();
@@ -72,14 +78,14 @@ class Settings extends Component {
                         <AddLink />
                         <hr />
                         <h3>Links</h3>
-                        <table>
+                        <table width="100%">
                             <thead>
                                 <tr>
-                                    <th>Group</th>
-                                    <th>Color</th>
-                                    <th>Name</th>
-                                    <th>Link</th>
-                                    <th>Actions</th>
+                                    <StyledTh>Group</StyledTh>
+                                    <StyledTh>Color</StyledTh>
+                                    <StyledTh>Name</StyledTh>
+                                    <StyledTh>Link</StyledTh>
+                                    <StyledTh>Actions</StyledTh>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,11 +95,11 @@ class Settings extends Component {
                             </tbody>
                             <thead>
                                 <tr>
-                                    <th>Group</th>
-                                    <th>Color</th>
-                                    <th>Name</th>
-                                    <th>Link</th>
-                                    <th>Actions</th>
+                                    <StyledTh>Group</StyledTh>
+                                    <StyledTh>Color</StyledTh>
+                                    <StyledTh>Name</StyledTh>
+                                    <StyledTh>Link</StyledTh>
+                                    <StyledTh>Actions</StyledTh>
                                 </tr>
                             </thead>
                         </table>
