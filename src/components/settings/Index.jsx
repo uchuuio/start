@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Absolute, ButtonOutline, Close, Provider, Relative } from 'rebass';
+import { Absolute, ButtonOutline, Close, Provider } from 'rebass';
 import styled from 'styled-components';
 
 import AddLink from '../links/AddLink';
@@ -46,8 +46,8 @@ class Settings extends Component {
         const { links } = this.props;
 
         return (
-            <Relative>
-                <Absolute m={2} top right>
+            <div>
+                <Absolute m={2} bottom right>
                     <SettingsButton onClick={this.handleOpenModal}>Settings</SettingsButton>
                 </Absolute>
                 
@@ -99,7 +99,7 @@ class Settings extends Component {
                         </table>
                     </Provider>
                 </ReactModal>
-            </Relative>
+            </div>
         );
     }
 }
