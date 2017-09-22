@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Absolute, ButtonOutline, Close, Provider } from 'rebass';
+import { Absolute, Border, ButtonOutline, Close, Provider } from 'rebass';
 import styled from 'styled-components';
 
 import AddLink from '../links/AddLink';
@@ -27,7 +27,7 @@ const StyledTh = styled.th`
     text-align: left;
     padding-top: 10px;
     padding-bottom: 10px;
-`
+`;
 
 class Settings extends Component {
     constructor () {
@@ -73,38 +73,46 @@ class Settings extends Component {
                         <Absolute m={2} top right>
                             <CloseButton onClick={this.handleCloseModal} />
                         </Absolute>
-                        <h2>Settings</h2>
-                        <hr />
-                        <AddLink />
-                        <hr />
-                        <h3>Links</h3>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <StyledTh>Group</StyledTh>
-                                    <StyledTh>Color</StyledTh>
-                                    <StyledTh>Name</StyledTh>
-                                    <StyledTh>Link</StyledTh>
-                                    <StyledTh>Actions</StyledTh>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {links.map(link => {
-                                    return (<SettingsLink key={link.id.toString()} {...link} />)
-                                })}
-                            </tbody>
-                            <thead>
-                                <tr>
-                                    <StyledTh>Group</StyledTh>
-                                    <StyledTh>Color</StyledTh>
-                                    <StyledTh>Name</StyledTh>
-                                    <StyledTh>Link</StyledTh>
-                                    <StyledTh>Actions</StyledTh>
-                                </tr>
-                            </thead>
-                        </table>
-                        <p>Configs for language of datetime, currencies, api keys & enabling modules</p>
-                        <p>Maybe some notes here on how built, link to github, thanks etc.</p>
+                        <h2 style={{marginTop: 0, textAlign: 'center'}}>Settings</h2>
+                        <Border pt={3} pb={2} top bottom>
+                            <h3 style={{margin: 0, textAlign: 'center', textDecoration: 'underline'}}>Links</h3>
+                            <table width="100%" style={{marginLeft: '-3px'}}>
+                                <thead>
+                                    <tr>
+                                        <StyledTh>Group</StyledTh>
+                                        <StyledTh>Color</StyledTh>
+                                        <StyledTh>Text</StyledTh>
+                                        <StyledTh>Link</StyledTh>
+                                        <StyledTh>Actions</StyledTh>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <AddLink />
+                                    {links.map(link => {
+                                        return (<SettingsLink key={link.id.toString()} {...link} />)
+                                    })}
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <StyledTh>Group</StyledTh>
+                                        <StyledTh>Color</StyledTh>
+                                        <StyledTh>Text</StyledTh>
+                                        <StyledTh>Link</StyledTh>
+                                        <StyledTh>Actions</StyledTh>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </Border>
+                        <Border pt={3} pb={2} top bottom>
+                            <h3 style={{margin: 0, textAlign: 'center', textDecoration: 'underline'}}>Configs</h3>
+                            <p>Configs for language of datetime, currencies, api keys & enabling modules</p>
+                        </Border>
+                        <div style={{textAlign: 'center'}}>
+                            <h3 style={{textDecoration: 'underline'}}>Notes/Credits</h3>
+                            <p>All configs and links are stored in your browser's localstorage.</p>
+                            <p>Built with React, Redux &amp; alot of effort by <a href="https://tomo.uchuu.io" target="_blank">tomo@uchuu</a>.</p>
+                            <p><a href="https://github.com/tomouchuu/start" target="_blank">Github Repo</a></p>
+                        </div>
                     </Provider>
                 </ReactModal>
             </div>

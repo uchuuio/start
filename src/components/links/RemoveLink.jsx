@@ -5,6 +5,8 @@ import { removeLink } from '../../actions/links';
 import styled from 'styled-components';
 const RemoveTd = styled.td`
   cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-decoration: underline;
 `;
 

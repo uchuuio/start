@@ -2,13 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addLink } from '../../actions/links';
 
-import { Button, Input, Row, Column } from 'rebass';
+import { ButtonTransparent, Input } from 'rebass';
 import styled from 'styled-components';
 const EqualHeightInputs = styled(Input)`
   height: 24px;
+  width: 85%;
 `;
-const AddLinkButton = styled(Button)`
+const AddLinkButton = styled(ButtonTransparent)`
   cursor: pointer;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: normal;
+  text-align: left;
+  font-size: 16px;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    box-shadow: none;
+  }
 `;
 
 class AddLinkForm extends Component {
@@ -53,46 +64,45 @@ class AddLinkForm extends Component {
 
   render() {
     return (
-
-      <form onSubmit={this.addLink}>
-        <Row>
-          <Column mb={0}>
-            <EqualHeightInputs
-              value={this.state.group}
-              onChange={this.handleChanges}
-              name="group"
-              placeholder="Group"
-            />
-          </Column>
-          <Column mb={0}>
-            <EqualHeightInputs
-              value={this.state.color}
-              onChange={this.handleChanges}
-              name="color"
-              placeholder="Color"
-            />
-          </Column>
-          <Column mb={0}>
-            <EqualHeightInputs
-              value={this.state.text}
-              onChange={this.handleChanges}
-              name="text"
-              placeholder="Text"
-            />
-          </Column>
-          <Column mb={0}>
-            <EqualHeightInputs
-              value={this.state.link}
-              onChange={this.handleChanges}
-              name="link"
-              placeholder="URL"
-            />
-          </Column>
-          <Column mb={0}>
+      <tr>
+        <td>
+          <EqualHeightInputs
+            value={this.state.group}
+            onChange={this.handleChanges}
+            name="group"
+            placeholder="Group"
+          />
+        </td>
+        <td>
+          <EqualHeightInputs
+            value={this.state.color}
+            onChange={this.handleChanges}
+            name="color"
+            placeholder="Color"
+          />
+        </td>
+        <td>
+          <EqualHeightInputs
+            value={this.state.text}
+            onChange={this.handleChanges}
+            name="text"
+            placeholder="Text"
+          />
+        </td>
+        <td>
+          <EqualHeightInputs
+            value={this.state.link}
+            onChange={this.handleChanges}
+            name="link"
+            placeholder="URL"
+          />
+        </td>
+        <td>
+          <form onSubmit={this.addLink}>
             <AddLinkButton width={1} type="submit">Add Link</AddLinkButton>
-          </Column>
-        </Row>
-      </form>
+          </form>
+        </td>
+      </tr>
     );
   }
 }
