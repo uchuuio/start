@@ -103,6 +103,8 @@ class Settings extends Component {
                                 </tr>
                             </thead>
                         </table>
+                        <p>Configs for language of datetime, currencies, api keys & enabling modules</p>
+                        <p>Maybe some notes here on how built, link to github, thanks etc.</p>
                     </Provider>
                 </ReactModal>
             </div>
