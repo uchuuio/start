@@ -4,7 +4,7 @@ function groups(state = {links: []}, action) {
     switch (action.type) {
         case 'ADD_LINK':
             let id = action.id;
-            while (id < state.length) {
+            while (id < state.links.length) {
                 id++;
             }
             return Object.assign({}, state, {
