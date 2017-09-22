@@ -7,17 +7,20 @@ import Link from './Link';
 import styled from 'styled-components';
 const LinkBlock = styled.ul`
     background: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
     color: white;
     display: inline-block;
     float: left;
     list-style: none;
     padding: 0;
-    margin: 0 5px;
+    margin: 5px;
 `;
 const LinkBlockTitle = styled.li`
     font-size: 32px;
     margin: 0;
     padding: 15px;
+    padding-right: 200px;
+    text-decoration: underline;
 `;
 
 const Links = ({ groups, links }) => (
