@@ -110,8 +110,8 @@ class Settings extends Component {
                         <div style={{textAlign: 'center'}}>
                             <h3 style={{textDecoration: 'underline'}}>Notes/Credits</h3>
                             <p>All configs and links are stored in your browser's localstorage.</p>
-                            <p>Built with React, Redux &amp; alot of effort by <a href="https://tomo.uchuu.io" target="_blank">tomo@uchuu</a>.</p>
-                            <p><a href="https://github.com/tomouchuu/start" target="_blank">Github Repo</a></p>
+                            <p>Built with React, Redux &amp; alot of effort by <a href="https://tomo.uchuu.io" target="_blank" rel="noopener noreferrer">tomo@uchuu</a>.</p>
+                            <p><a href="https://github.com/tomouchuu/start" target="_blank" rel="noopener noreferrer">Github Repo</a></p>
                         </div>
                     </Provider>
                 </ReactModal>
