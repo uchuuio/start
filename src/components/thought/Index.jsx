@@ -32,7 +32,7 @@ class Thought extends Component {
 
     render() {
         return (
-            <Box>
+            <Box className="thought">
                 <Text right color="white" f={4} dangerouslySetInnerHTML={{__html: this.state.thought.jp}} />
                 <Text right color="white" f={4} dangerouslySetInnerHTML={{__html: this.state.thought.en}} />
             </Box>

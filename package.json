@@ -18,7 +18,11 @@
     "uigradients": "^0.2.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "jest-enzyme": "^4.0.0",
+    "react-scripts": "1.0.7",
+    "react-test-renderer": "^16.0.0"
   },
   "now": {
     "alias": "start.uchuu.io"

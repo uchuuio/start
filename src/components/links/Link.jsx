@@ -21,7 +21,7 @@ const StyledA = styled.a`
 class Link extends Component {
   render() {
     return (
-      <li><StyledA color={this.props.color} href={this.props.link} title={this.props.text}>{this.props.text}</StyledA></li>
+      <li className='link-item'><StyledA color={this.props.color} href={this.props.link} title={this.props.text}>{this.props.text}</StyledA></li>
     );
   }
 }
