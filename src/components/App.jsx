@@ -20,11 +20,12 @@ const StyledHR = styled.hr`
   margin: 15px 0 15px auto;
 `;
 
-const Version = styled.p`
+const Version = styled.span`
   font-size: 12px;
   color: white;
   margin: 0;
   margin-top: -15px;
+  display: block;
 `
 
 class App extends Component {
@@ -73,10 +74,10 @@ class App extends Component {
         <Settings />
 
         <Flex>
-          <Box pr={2} width={(1 + Math.sqrt(5)) / 2 - 1}>
+          <Box pr={2} width={6/10}>
             <Links />
           </Box>
-          <Box p={2} width={1 - ((1 + Math.sqrt(5)) / 2 - 1)}>
+          <Box p={2} width={4/10}>
             <Text right color="white" f={9}>
               START
               <Version>BETA V6</Version>
