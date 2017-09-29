@@ -53,7 +53,7 @@ class Settings extends Component {
 
         return (
             <div>
-                <Absolute m={2} bottom right>
+                <Absolute m={2} bottom left>
                     <SettingsButton onClick={this.handleOpenModal}>Settings</SettingsButton>
                 </Absolute>
                 
@@ -67,7 +67,7 @@ class Settings extends Component {
                         content: {
                             // color: 'lightsteelblue'
                         }
-                        }}
+                    }}
                 >
                     <Provider>
                         <Absolute m={2} top right>
