@@ -1,36 +1,52 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import fetch from 'isomorphic-fetch';
 
 import { Box, Text } from 'rebass';
 
-class Currency extends Component {
+class CurrencyComponent extends Component {
     constructor(props) {
         super(props);
+        const currencies = props.currency.target.split(',');
         this.state = {
             currency: {
-                source: 'GBP',
-                target: 'USD,JPY',
-                currencies: ['USD', 'JPY'],
+                base: props.currency.base,
+                target: props.currency.target,
+                currencies,
                 rates: [],
             },
         };
     }
 
     componentDidMount() {
-        fetch(`https://api.fixer.io/latest?base=${this.state.currency.source}&symbols=${this.state.currency.target}`)
-            .then((response) => response.json())
-            .then((res) => {
-                this.setState((prevState) => {
-                    return {
-                        currency: {
-                            source: prevState.currency.source,
-                            target: prevState.currency.target,
-                            currencies: prevState.currency.currencies,
-                            rates: res.rates,
-                        },
-                    };
-                });
+        this.getCurrencies();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const base = nextProps.currency.base;
+        const target = nextProps.currency.target;
+        this.getCurrencies(base, target);
+    }
+
+    getCurrencies(base, target) {
+        const baseCurrency = base || this.state.currency.base;
+        const targetCurrency = target || this.state.currency.target;
+
+        fetch(`https://api.fixer.io/latest?base=${baseCurrency}&symbols=${targetCurrency}`)
+        .then((response) => response.json())
+        .then((res) => {
+            this.setState(() => {
+                const currencies = targetCurrency.split(',');
+                return {
+                    currency: {
+                        base: baseCurrency,
+                        target: targetCurrency,
+                        currencies,
+                        rates: res.rates,
+                    },
+                };
             });
+        });
     }
 
     render() {
@@ -38,12 +54,22 @@ class Currency extends Component {
             <Box>
                 {this.state.currency.currencies.map((currency, i) => (
                     <Box key={i}>
-                        <Text color="white" f={4} right>£1 buys {this.state.currency.rates[currency]} {currency}</Text>
+                        <Text color="white" f={4} right>1{this.state.currency.base} buys {this.state.currency.rates[currency]} {currency}</Text>
                     </Box>
                 ))}
             </Box>
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+      currency: state.settings.currency
+    }
+  };
+  
+  const Currency = connect(
+    mapStateToProps
+  )(CurrencyComponent);
 
 export default Currency;

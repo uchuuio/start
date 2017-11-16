@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Gradient } from 'uigradients';
 
 import Links from './links/Index';
@@ -13,22 +14,9 @@ import styled from 'styled-components';
 const FullScreenGradient = styled(Gradient)`
   height: 100vh;
   width: 100vw;
-`
-const StyledHR = styled.hr`
-  border: 1px solid white;
-  border-radius: 10px;
-  margin: 15px 0 15px auto;
 `;
 
-const Version = styled.span`
-  font-size: 12px;
-  color: white;
-  margin: 0;
-  margin-top: -15px;
-  display: block;
-`
-
-class App extends Component {
+class AppComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,23 +65,38 @@ class App extends Component {
           <Box pr={2} width={6/10}>
             <Links />
           </Box>
-          <Box p={2} width={4/10}>
-            <Text right color="white" f={9}>
-              START
-              <Version>BETA V6</Version>
-            </Text>
-            <StyledHR width={this.randomWidthHr()} />
-            <DateTime />
-            <Text right color="white">Weather Coming Soon!</Text>
-            <StyledHR width={this.randomWidthHr()} />
-            <Currency />
-            <StyledHR width={this.randomWidthHr()} />
-            <Thought />
+          <Box px={2} width={4/10}>
+            {
+              this.props.settings.modules.datetime &&
+              <DateTime />
+            }
+            {
+              this.props.settings.modules.weather &&
+              <Text right color="white">Weather Coming Soon!</Text>
+            }
+            {
+              this.props.settings.modules.currency &&
+              <Currency />
+            }
+            {
+              this.props.settings.modules.thought &&
+              <Thought />
+            }
           </Box>
         </Flex>
       </FullScreenGradient>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    settings: state.settings
+  }
+};
+
+const App = connect(
+  mapStateToProps
+)(AppComponent);
 
 export default App;

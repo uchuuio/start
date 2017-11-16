@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Absolute, Border, ButtonOutline, Close, Provider } from 'rebass';
+import { Absolute, Border, ButtonOutline, Close, Heading, Provider, Subhead } from 'rebass';
 import styled from 'styled-components';
 
 import AddLink from '../links/AddLink';
 import SettingsLink from '../links/SettingsLink';
+import UpdateSettings from './configs';
 
 import ReactModal from 'react-modal';
 ReactModal.setAppElement('#root');
@@ -59,23 +60,21 @@ class Settings extends Component {
                 
                 <ReactModal 
                     isOpen={this.state.showModal}
-                    contentLabel="Inline Styles Modal Example"
+                    contentLabel="Settings"
                     style={{
                         overlay: {
                             backgroundColor: '#2A2F3A'
                         },
-                        content: {
-                            // color: 'lightsteelblue'
-                        }
+                        content: {}
                     }}
                 >
                     <Provider>
                         <Absolute m={2} top right>
                             <CloseButton onClick={this.handleCloseModal} />
                         </Absolute>
-                        <h2 style={{marginTop: 0, textAlign: 'center'}}>Settings</h2>
+                        <Heading style={{marginTop: 0, textAlign: 'center'}}>Settings</Heading>
                         <Border pt={3} pb={2} top bottom>
-                            <h3 style={{margin: 0, textAlign: 'center', textDecoration: 'underline'}}>Links</h3>
+                            <Subhead style={{margin: 0, textAlign: 'center', textDecoration: 'underline'}}>Links</Subhead>
                             <table width="100%" style={{marginLeft: '-3px'}}>
                                 <thead>
                                     <tr>
@@ -104,11 +103,13 @@ class Settings extends Component {
                             </table>
                         </Border>
                         <Border pt={3} pb={2} top bottom>
-                            <h3 style={{margin: 0, textAlign: 'center', textDecoration: 'underline'}}>Configs</h3>
+                            <Subhead style={{margin: 0, textAlign: 'center', textDecoration: 'underline'}}>Configs</Subhead>
+                            <UpdateSettings />
                             <p>Configs for language of datetime, currencies, api keys & enabling modules</p>
                         </Border>
                         <div style={{textAlign: 'center'}}>
-                            <h3 style={{textDecoration: 'underline'}}>Notes/Credits</h3>
+                            <Subhead style={{marginTop: 15, textDecoration: 'underline'}}>Notes/Credits</Subhead>
+                            <p>BETA V6</p>
                             <p>All configs and links are stored in your browser's localstorage.</p>
                             <p>Built with React, Redux &amp; alot of effort by <a href="https://tomo.uchuu.io" target="_blank" rel="noopener noreferrer">tomo@uchuu</a>.</p>
                             <p><a href="https://github.com/tomouchuu/start" target="_blank" rel="noopener noreferrer">Github Repo</a></p>

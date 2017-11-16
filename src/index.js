@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import { compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import persistState from 'redux-localstorage';
-import reducer from './reducers/groups';
+import reducer from './reducers';
 
 import 'normalize.css';
 import { Provider as RebassProvider } from 'rebass';

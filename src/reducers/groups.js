@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 function groups(state = {links: []}, action) {
     switch (action.type) {
         case 'ADD_LINK':
@@ -37,8 +35,4 @@ function groups(state = {links: []}, action) {
     }
 }
 
-const groupsReducers = combineReducers({
-    groups
-})
-
-export default groupsReducers
+export default groups;
