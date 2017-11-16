@@ -68,7 +68,7 @@ class AppComponent extends Component {
           <Box px={2} width={4/10}>
             {
               this.props.settings.modules.datetime &&
-              <DateTime />
+              <DateTime locale={this.props.settings.datetime.locale} />
             }
             {
               this.props.settings.modules.weather &&

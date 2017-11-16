@@ -43,6 +43,20 @@ class UpdateSettingsForm extends Component {
     return (
       <div className="configs">
         <section>
+          <Subhead>Date/Time</Subhead>
+          <FormGroup>
+            <Label>Locale</Label>
+            <StyledInput
+              value={this.state.datetime.locale}
+              onChange={this.handleChanges}
+              data-section="datetime"
+              name="locale"
+              placeholder="en"
+            />
+          </FormGroup>
+        </section>
+
+        <section>
           <Subhead>
             Weather
             <Label style={{display: "inline-flex", marginLeft: 15}}>

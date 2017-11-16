@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axs": "^2.0.0-1",
-    "date-fns": "^1.28.5",
+    "date-fns": "^2.0.0-alpha.7",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",

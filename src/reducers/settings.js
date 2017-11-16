@@ -6,7 +6,7 @@ const baseSettings = {
         thought: true
     },
     datetime: {
-        locale: "EN"
+        locale: "en"
     },
     weather: {
         key: "",
@@ -30,22 +30,6 @@ function settings(state = baseSettings, action) {
                     [section]: content
                 })
             });
-
-            // while (id < state.links.length) {
-            //     id++;
-            // }
-            // return Object.assign({}, state, {
-            //     links: [
-            //         ...state.links,
-            //         {
-            //             id: id,
-            //             group: action.group,
-            //             color: action.color,
-            //             text: action.text,
-            //             link: action.link
-            //         }
-            //     ]
-            // });
         default:
             return state
     }
