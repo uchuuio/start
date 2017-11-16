@@ -15,6 +15,13 @@ const FullScreenGradient = styled(Gradient)`
   height: 100vh;
   width: 100vw;
 `;
+const ContentBox = styled(Box)`
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid white;
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+`;
 
 class AppComponent extends Component {
   constructor(props) {
@@ -52,8 +59,17 @@ class AppComponent extends Component {
     });
   }
 
-  randomWidthHr() {
-    return `${Math.floor(Math.random() * (80 - 40 + 1)) + 40}%`;
+  getColumnWidths() {
+    let i = 0;
+
+    for (const module in this.props.settings.modules) {
+      if (this.props.settings.modules[module]) {
+        i++;
+      }
+    }
+
+    const width = 1/i;
+    return [1, width];
   }
 
   render() {
@@ -62,27 +78,27 @@ class AppComponent extends Component {
         <Settings />
 
         <Flex>
-          <Box pr={2} width={6/10}>
+          <ContentBox mx='auto' width={[1, 7/10]}>
+            <Flex wrap>
+              {
+                this.props.settings.modules.datetime &&
+                <Box width={this.getColumnWidths()}><DateTime locale={this.props.settings.datetime.locale} /></Box>
+              }
+              {
+                this.props.settings.modules.weather &&
+                <Box width={this.getColumnWidths()}><Text right color="white">Weather Coming Soon!</Text></Box>
+              }
+              {
+                this.props.settings.modules.currency &&
+                <Box width={this.getColumnWidths()}><Currency /></Box>
+              }
+              {
+                this.props.settings.modules.thought &&
+                <Box width={this.getColumnWidths()}><Thought /></Box>
+              }
+            </Flex>
             <Links />
-          </Box>
-          <Box px={2} width={4/10}>
-            {
-              this.props.settings.modules.datetime &&
-              <DateTime locale={this.props.settings.datetime.locale} />
-            }
-            {
-              this.props.settings.modules.weather &&
-              <Text right color="white">Weather Coming Soon!</Text>
-            }
-            {
-              this.props.settings.modules.currency &&
-              <Currency />
-            }
-            {
-              this.props.settings.modules.thought &&
-              <Thought />
-            }
-          </Box>
+          </ContentBox>
         </Flex>
       </FullScreenGradient>
     );

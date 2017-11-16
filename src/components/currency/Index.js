@@ -51,10 +51,10 @@ class CurrencyComponent extends Component {
 
     render() {
         return (
-            <Box>
+            <Box mx={2}>
                 {this.state.currency.currencies.map((currency, i) => (
                     <Box key={i}>
-                        <Text color="white" f={4} right>1{this.state.currency.base} buys {this.state.currency.rates[currency]} {currency}</Text>
+                        <Text center color="white" f={4}>1{this.state.currency.base} buys {this.state.currency.rates[currency]} {currency}</Text>
                     </Box>
                 ))}
             </Box>
