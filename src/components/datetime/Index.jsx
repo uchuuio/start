@@ -4,13 +4,6 @@ import { format } from 'date-fns/esm';
 import { es, ja, ru } from 'date-fns/esm/locale';
 
 import { Box, Text } from 'rebass';
-import styled from 'styled-components';
-const StyledText = styled(Text)`
-    text-align: left;
-    @media screen and (max-width: 32em) {
-        text-align: center;
-    }
-`;
 
 class DateTime extends Component {
     constructor(props) {
@@ -92,10 +85,9 @@ class DateTime extends Component {
     render() {
         return (
             <Box mx={2}>
-                <StyledText color="white" f={5}>
-                    {this.state.dayName} {this.state.day} {this.state.month}
-                </StyledText>
-                <StyledText color="white" f={5}>{this.state.time}</StyledText>
+                <Text center color="white" f={7}>
+                    {this.state.dayName} {this.state.day} {this.state.month}, {this.state.time}
+                </Text>
             </Box>
         );
     }

@@ -5,12 +5,15 @@ import { updateSetting } from '../../actions/settings';
 import { Checkbox, Label, Input, Select, Subhead } from 'rebass';
 import styled from 'styled-components';
 
+const Section = styled.section`
+  margin: 10px 0;
+`;
 const FormGroup = styled.div`
   margin-top: 10px;
 `;
 const StyledInput = styled(Input)`
   box-sizing: border-box;
-`
+`;
 
 class UpdateSettingsForm extends Component {
   constructor(props) {
@@ -42,7 +45,7 @@ class UpdateSettingsForm extends Component {
   render() {
     return (
       <div className="configs">
-        <section>
+        <Section>
           <Subhead>Date/Time</Subhead>
           <FormGroup>
             <Label>Locale</Label>
@@ -54,9 +57,9 @@ class UpdateSettingsForm extends Component {
               placeholder="en"
             />
           </FormGroup>
-        </section>
+        </Section>
 
-        <section>
+        <Section>
           <Subhead>
             Weather
             <Label style={{display: "inline-flex", marginLeft: 15}}>
@@ -104,9 +107,9 @@ class UpdateSettingsForm extends Component {
               </FormGroup>
             </div>
           }
-        </section>
+        </Section>
 
-        <section>
+        <Section>
           <Subhead>
             Currency
             <Label style={{display: "inline-flex", marginLeft: 15}}>
@@ -146,9 +149,9 @@ class UpdateSettingsForm extends Component {
               </FormGroup>
             </div>
           }
-        </section>
+        </Section>
 
-        <section>
+        <Section>
           <Subhead>
             Thought
             <Label style={{display: "inline-flex", marginLeft: 15}}>
@@ -162,7 +165,7 @@ class UpdateSettingsForm extends Component {
               Enable
             </Label>
           </Subhead>
-        </section>
+        </Section>
       </div>
     );
   }

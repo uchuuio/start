@@ -20,9 +20,6 @@ const SettingsButton = styled(ButtonOutline)`
         transition: all .2s;
     }
 `;
-const CloseButton = styled(Close)`
-    cursor: pointer;
-`;
 
 const StyledTh = styled.th`
     text-align: left;
@@ -70,7 +67,7 @@ class Settings extends Component {
                 >
                     <Provider>
                         <Absolute m={2} top right>
-                            <CloseButton onClick={this.handleCloseModal} />
+                            <Close onClick={this.handleCloseModal} />
                         </Absolute>
                         <Heading style={{marginTop: 0, textAlign: 'center'}}>Settings</Heading>
                         <Border pt={3} pb={2} top bottom>
