@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Gradient } from 'uigradients';
+import { generator } from 'uigradients';
 
 import Links from './links/Index';
 import Settings from './settings/Index';
@@ -11,47 +11,26 @@ import Currency from './currency/Index';
 
 import { Flex, Box, Text } from 'rebass';
 import styled from 'styled-components';
-const FullScreenGradient = styled(Gradient)`
+const FullScreenGradient = styled.div`
+  ${generator({
+    gradient: 'timber',
+    type: 'radial',
+    options: {
+        position: '45px 20px',
+        shape: 'ellipse',
+        colorStops: ['0%', '100%'],
+        extent: 'farthest-corner'
+    }
+  })}
   height: 100vh;
   width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 `;
 
 class AppComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      gradient: 'cherry',
-    };
-  }
-
-  componentDidMount() {
-    this.gradientID = setInterval(
-      () => this.gradientPicker(),
-      30000
-    );
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.gradientID);
-  }
-
-  gradientPicker() {
-    const gradients = [
-      'cherry',
-      'kyoto',
-      'peach',
-      'reef',
-      'cherryblossoms',
-      'amethyst',
-    ];
-    const randomIndex = Math.floor(Math.random() * gradients.length);
-    const gradient = gradients[randomIndex];
-    this.setState((prevGradient) => {
-      // Add keyframes from prevous gradient to new gradient
-      return {gradient}
-    });
-  }
-
   getColumnWidths() {
     let i = -1;
 
@@ -67,7 +46,8 @@ class AppComponent extends Component {
 
   render() {
     return (
-      <FullScreenGradient className="gradientbg" gradient={this.state.gradient}>
+      <div>
+        <FullScreenGradient className="gradientbg" />
         <Settings />
 
         {
@@ -91,7 +71,7 @@ class AppComponent extends Component {
         </Flex>
 
         <Links />
-      </FullScreenGradient>
+      </div>
     );
   }
 }
