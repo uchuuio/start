@@ -24,9 +24,6 @@
     "react-scripts": "1.0.7",
     "react-test-renderer": "^16.0.0"
   },
-  "now": {
-    "alias": "start.uchuu.io"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

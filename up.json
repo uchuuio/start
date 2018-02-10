@@ -1,0 +1,9 @@
+{
+  "name": "start",
+  "profile": "uchuuio",
+  "regions": ["eu-west-2"],
+  "type": "static",
+  "static": {
+    "dir": "build"
+  }
+}
