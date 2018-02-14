@@ -15,6 +15,7 @@
     "rebass": "^1.0.3",
     "redux": "^3.7.0",
     "redux-localstorage": "^0.4.1",
+    "styled-components": "^3.1.6",
     "uigradients": "^0.2.1"
   },
   "devDependencies": {
