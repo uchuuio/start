@@ -63,11 +63,9 @@ class CurrencyComponent extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
-      currency: state.settings.currency
-    }
-  };
-  
+  return { currency: state.settings.currency };
+};
+
   const Currency = connect(
     mapStateToProps
   )(CurrencyComponent);
