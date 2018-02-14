@@ -1,8 +1,6 @@
-export const updateSetting = (area, section, content) => {
-  return {
-    type: 'UPDATE_SETTING',
-    area,
-    section,
-    content,
-  };
-};
+export default (area, section, content) => ({
+  type: 'UPDATE_SETTING',
+  area,
+  section,
+  content,
+});

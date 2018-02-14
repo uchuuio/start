@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import { removeLink } from '../../actions/links';
 
-import styled from 'styled-components';
 const RemoveTd = styled.td`
   cursor: pointer;
   padding-top: 10px;
@@ -17,25 +17,24 @@ class Link extends Component {
 
   render() {
     return (
-      <RemoveTd onClick={e => {
-        e.preventDefault()
-        this.handleClick(this.props.id)
-      }}>Remove</RemoveTd>
+      <RemoveTd
+        onClick={e => {
+          e.preventDefault();
+          this.handleClick(this.props.id);
+        }}
+      >
+        Remove
+      </RemoveTd>
     );
-  }
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    removeLinkDispatch: (id) => {
-      dispatch(removeLink(id));
-    }
   }
 }
 
-const RemoveLink = connect(
-  null,
-  mapDispatchToProps
-)(Link)
+const mapDispatchToProps = dispatch => ({
+  removeLinkDispatch: id => {
+    dispatch(removeLink(id));
+  },
+});
+
+const RemoveLink = connect(null, mapDispatchToProps)(Link);
 
 export default RemoveLink;

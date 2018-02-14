@@ -1,9 +1,7 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
-import Thought from './Index.jsx';
+import { shallow } from 'enzyme';
+import Thought from './Index';
 
 it('should render', () => {
-    expect(
-        shallow(<Thought />).is('.thought')
-    ).toBe(true);
+  expect(shallow(<Thought />).is('.thought')).toBe(true);
 });

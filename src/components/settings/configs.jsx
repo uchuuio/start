@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateSetting } from '../../actions/settings';
-
 import { Checkbox, Label, Input, Select, Subhead } from 'rebass';
 import styled from 'styled-components';
+
+import { updateSetting } from '../../actions/settings';
 
 const Section = styled.section`
   margin: 10px 0;
@@ -18,27 +18,24 @@ const StyledInput = styled(Input)`
 class UpdateSettingsForm extends Component {
   constructor(props) {
     super(props);
-    this.state = props.settings;
+    const { settings } = props;
+    this.state = settings;
 
     this.handleChanges = this.handleChanges.bind(this);
   }
 
   handleChanges(event) {
-    const target = event.target;
+    const { target } = event;
+    const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const section = target.getAttribute('data-section');
-    const name = target.name;
 
-    this.props.updateSettingDispatch(
-      section,
-      name,
-      value
-    );
+    this.props.updateSettingDispatch(section, name, value);
 
     this.setState({
       [section]: {
-        [name]: value
-      }
+        [name]: value,
+      },
     });
   }
 
@@ -62,7 +59,7 @@ class UpdateSettingsForm extends Component {
         <Section>
           <Subhead>
             Weather
-            <Label style={{display: "inline-flex", marginLeft: 15}}>
+            <Label style={{ display: 'inline-flex', marginLeft: 15 }}>
               <Checkbox
                 checked={this.state.modules.weather}
                 value={this.state.modules.weather}
@@ -74,8 +71,7 @@ class UpdateSettingsForm extends Component {
             </Label>
           </Subhead>
 
-          {
-            this.state.modules.weather &&
+          {this.state.modules.weather && (
             <div className="weather-enabled">
               <FormGroup>
                 <Label>API Key for Darksky</Label>
@@ -99,20 +95,25 @@ class UpdateSettingsForm extends Component {
               </FormGroup>
               <FormGroup>
                 <Label>Units</Label>
-                <Select value={this.state.weather.units} onChange={this.handleChanges} data-section="weather" name="units">
-                  <option value=""></option>
+                <Select
+                  value={this.state.weather.units}
+                  onChange={this.handleChanges}
+                  data-section="weather"
+                  name="units"
+                >
+                  <option value="" />
                   <option value="c,mph">c,mph</option>
                   <option value="f">f</option>
                 </Select>
               </FormGroup>
             </div>
-          }
+          )}
         </Section>
 
         <Section>
           <Subhead>
             Currency
-            <Label style={{display: "inline-flex", marginLeft: 15}}>
+            <Label style={{ display: 'inline-flex', marginLeft: 15 }}>
               <Checkbox
                 checked={this.state.modules.currency}
                 value={this.state.modules.currency}
@@ -124,8 +125,7 @@ class UpdateSettingsForm extends Component {
             </Label>
           </Subhead>
 
-          {
-            this.state.modules.currency &&
+          {this.state.modules.currency && (
             <div className="currency-enabled">
               <FormGroup>
                 <Label>Base Curency</Label>
@@ -148,13 +148,13 @@ class UpdateSettingsForm extends Component {
                 />
               </FormGroup>
             </div>
-          }
+          )}
         </Section>
 
         <Section>
           <Subhead>
             Thought
-            <Label style={{display: "inline-flex", marginLeft: 15}}>
+            <Label style={{ display: 'inline-flex', marginLeft: 15 }}>
               <Checkbox
                 checked={this.state.modules.thought}
                 value={this.state.modules.thought}
@@ -171,21 +171,18 @@ class UpdateSettingsForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    settings: state.settings
-  }
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateSettingDispatch: (area, section, content) => {
-      dispatch(updateSetting(area, section, content));
-    }
-  }
-}
-const UpdateSettings = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UpdateSettingsForm)
+const mapStateToProps = state => ({
+  settings: state.settings,
+});
+
+const mapDispatchToProps = dispatch => ({
+  updateSettingDispatch: (area, section, content) => {
+    dispatch(updateSetting(area, section, content));
+  },
+});
+
+const UpdateSettings = connect(mapStateToProps, mapDispatchToProps)(
+  UpdateSettingsForm
+);
 
 export default UpdateSettings;

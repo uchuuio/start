@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
 const StyledA = styled.a`
   background: white;
-  border-left: 5px solid ${props => props.color ? props.color : 'white'};
-  color: ${props => props.color ? props.color : '#aa201d'};
+  border-left: 5px solid ${props => (props.color ? props.color : 'white')};
+  color: ${props => (props.color ? props.color : '#aa201d')};
   display: block;
   font-size: 20px;
   padding: 10px;
   text-decoration: none;
-  transition: all .2s;
+  transition: all 0.2s;
   &:hover {
-    background: ${props => props.color ? props.color : '#aa201d'};
+    background: ${props => (props.color ? props.color : '#aa201d')};
     color: white;
-    transition: all .2s;
+    transition: all 0.2s;
   }
 `;
 
-class Link extends Component {
-  render() {
-    return (
-      <li className='link-item'><StyledA color={this.props.color} href={this.props.link} title={this.props.text}>{this.props.text}</StyledA></li>
-    );
-  }
-}
+const Link = props => (
+  <li className="link-item">
+    <StyledA color={props.color} href={props.link} title={props.text}>
+      {props.text}
+    </StyledA>
+  </li>
+);
 
 export default Link;

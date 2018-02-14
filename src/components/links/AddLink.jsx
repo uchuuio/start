@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addLink } from '../../actions/links';
 
 import { ButtonTransparent, Input } from 'rebass';
 import styled from 'styled-components';
+
+import { addLink } from '../../actions/links';
+
 const EqualHeightInputs = styled(Input)`
   height: 24px;
   width: 85%;
@@ -49,16 +51,16 @@ class AddLinkForm extends Component {
       color: '',
       text: '',
       link: '',
-    })
+    });
   }
 
   handleChanges(event) {
-    const target = event.target;
+    const { target } = event;
+    const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-    
+
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -99,7 +101,9 @@ class AddLinkForm extends Component {
         </td>
         <td>
           <form onSubmit={this.addLink}>
-            <AddLinkButton width={1} type="submit">Add Link</AddLinkButton>
+            <AddLinkButton width={1} type="submit">
+              Add Link
+            </AddLinkButton>
           </form>
         </td>
       </tr>
@@ -107,16 +111,11 @@ class AddLinkForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addLinkDispatch: (group, color, text, link) => {
-      dispatch(addLink(group, color, text, link));
-    }
-  }
-}
-const AddLink = connect(
-  null,
-  mapDispatchToProps
-)(AddLinkForm)
+const mapDispatchToProps = dispatch => ({
+  addLinkDispatch: (group, color, text, link) => {
+    dispatch(addLink(group, color, text, link));
+  },
+});
+const AddLink = connect(null, mapDispatchToProps)(AddLinkForm);
 
 export default AddLink;
