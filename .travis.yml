@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "6.10.3"
+before_script:
+  - sudo chown -R $(whoami) /usr/local/bin
+  - curl -f https://up.apex.sh/install | sh
+  - up upgrade
+after_script:
+  - cat ./coverage/lcov.info | coveralls
+after_success:
+  - yarn run build
+deploy:
+  # deploy dev to the staging environment
+  - provider: script
+    script: up
+    on:
+      branch: dev
+  # deploy master to production
+  - provider: script
+    script: up deploy production
+    on:
+      branch: master

@@ -19,6 +19,7 @@
     "uigradients": "^0.2.1"
   },
   "devDependencies": {
+    "coveralls": "^3.0.0",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "eslint": "^4.17.0",
@@ -40,7 +41,7 @@
     "build": "react-scripts build",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "precommit": "precise-commits",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   }
 }
