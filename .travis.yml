@@ -4,7 +4,7 @@ node_js:
 before_script:
   - sudo chown -R $(whoami) /usr/local/bin
   - curl -f https://up.apex.sh/install | sh
-  - up upgrade
+  # - up upgrade
 after_script:
   - cat ./coverage/lcov.info | coveralls
 after_success:
