@@ -1,0 +1,50 @@
+{
+  "name": "start",
+  "profile": "uchuuio",
+  "regions": ["eu-west-2"],
+  "type": "static",
+  "static": {
+    "dir": "build"
+  },
+  "stages": {
+    "production": {
+      "domain": "start.uchuu.io"
+    },
+    "staging": {
+      "domain": "stage-start.uchuu.io"
+    }
+  },
+  "actions": [
+    {
+      "name": "slack",
+      "type": "slack",
+      "url": "https://discordapp.com/api/webhooks/412167423643353088/CM6xzHDC8oowVkaR-BArSEUsy2TmG1SE9BazyRum26i5bXnuODdhK1x0bWlnQO3ZWQQy/slack"
+    }
+  ],
+  "alerts": [
+    {
+      "metric": "http.5xx",
+      "statistic": "sum",
+      "threshold": 5,
+      "period": "5m",
+      "action": "slack",
+      "description": "5xx Errors"
+    },
+    {
+      "metric": "http.4xx",
+      "statistic": "sum",
+      "threshold": 5,
+      "period": "5m",
+      "action": "slack",
+      "description": "4xx Errors"
+    },
+    {
+      "metric": "http.latency",
+      "statistic": "avg",
+      "threshold": 5000,
+      "period": "5m",
+      "action": "slack",
+      "description": "Large traffic spike"
+    }
+  ]
+}

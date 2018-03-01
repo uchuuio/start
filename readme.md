@@ -1,47 +1,23 @@
 # Start
 ## A React based Start Page for your web browser.
 
-![New Look](https://tomo.pagu.co/assets/images/projects/start.png)
+| Master  | Dev |
+| ------------- | ------------- |
+| [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=master)](https://travis-ci.org/uchuuio/start) | [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=dev)](https://travis-ci.org/uchuuio/start) |
+| [![Coverage Status](https://coveralls.io/repos/github/uchuuio/start/badge.svg?branch=master)](https://coveralls.io/github/uchuuio/start?branch=master)  | [![Coverage Status](https://coveralls.io/repos/github/uchuuio/start/badge.svg?branch=dev)](https://coveralls.io/github/uchuuio/start?branch=dev) |
 
-### Getting Started
+### How to use
 
-You'll need [Node](http://nodejs.org/) & [Webpack](http://gruntjs.com/) for this!
+Head to the website and click the settings button in bottom right to open the settings modal. Here you can configure the start page to be how you want it with custom links and widgets. Once you're happy and you can set it up as your new tab page by following the steps here: http://www.guidingtech.com/8004/have-new-tab-page-open-specific-website-firefox-chrome/
 
-Just clone the repo and run `npm install` for dependencies.
+### Building
 
-Next edit the data by renaming `example.config.js` to `config.js` and then edit this file. It should be fairly easy to understand but I'll break it down anyway.
+You'll need [Node](http://nodejs.org/)!
 
-`'name': '',` - Write the name you want to be identified by in the quotemarks.
+Just clone the repo and run `npm install` (or `yarn install`) for dependencies, we use the excellant create-react-app as a base.
 
-`'forecastApiKey': '',` - Get an API key from [DarkSky](https://developer.darksky.net/) and put it in there if you want weather information.
-`'latitude': '51.5171',` - Add the latitude of the location you want to know the weather for. Can be left blank if you choose to let the app get your current location.
-`'longitude': '-0.1062',` - Add the longitude of the location you want to know the weather for. Can be left blank if you choose to let the app get your current location.
-`'units': '[celsius, fahrenheit]'` - Makes the weather information display in celsius or fahrenheit. Pick one and remove the square brackets.
+### TODO
 
-`'groupName': 'Social',` - The name for the following group of links
-`'url': 'http://twitter.com',` - The url for one of the links
-`'text': 'Twitter'` - The text for one of the links
-
-If you want to add another link to a group add the following after the last `}` before the `]` in the links array:
-```json
-, {
-	'url': '',
-	'text': ''
-}
-```
-
-To add another group add the following after the last `}` before the `]` in the sites array:
-
-```json
-, {
-	'groupName': '',
-	'links': [{
-		'url': '',
-		'text': ''
-	}]
-}
-```
-
-Once you've editied config.js as you want, run `webpack` in the root of the project to build the css/js and you're good to go!
-
-Check the following link for how to set it to be your start page: http://www.guidingtech.com/8004/have-new-tab-page-open-specific-website-firefox-chrome/
+* Needs Icons/Styling
+* Integrate Weather
+* Integrate Wanikani

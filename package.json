@@ -1,31 +1,47 @@
 {
   "name": "start",
-  "version": "5.0.0",
-  "author": "Tomo <@tomopagu>",
-  "description": "A React Based Browser Start Page",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tomopagu/start.git"
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axs": "^2.0.0-1",
+    "date-fns": "^2.0.0-alpha.7",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
+    "normalize.css": "^7.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-modal": "^2.2.2",
+    "react-redux": "^5.0.5",
+    "rebass": "^1.0.3",
+    "redux": "^3.7.0",
+    "redux-localstorage": "^0.4.1",
+    "styled-components": "^3.1.6",
+    "uigradients": "^0.2.1"
   },
-  "license": "WTFPL (Do What the Fuck You Want to Public License)",
-  "jspm": {
-    "dependencies": {
-      "es6-promise": "npm:es6-promise@^3.3.1",
-      "fetch-jsonp": "npm:fetch-jsonp@^1.0.1",
-      "isomorphic-fetch": "npm:isomorphic-fetch@^2.2.1",
-      "lodash": "npm:lodash@^4.16.1",
-      "moment": "npm:moment@^2.15.1",
-      "react": "npm:react@^15.3.2",
-      "react-addons-create-fragment": "npm:react-addons-create-fragment@^15.3.2",
-      "react-dom": "npm:react-dom@^15.3.2",
-      "react-look": "npm:react-look@^1.0.1",
-      "react-skycons": "npm:react-skycons@^0.3.0",
-      "reflexbox": "npm:reflexbox@^2.2.1"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "husky": "^0.14.3",
+    "jest-enzyme": "^4.0.0",
+    "precise-commits": "^1.0.1",
+    "prettier": "^1.10.2",
+    "react-scripts": "1.1.1",
+    "react-test-renderer": "^16.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "precommit": "precise-commits",
+    "test": "react-scripts test --env=jsdom --coverage",
+    "eject": "react-scripts eject"
   }
 }
