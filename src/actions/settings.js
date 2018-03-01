@@ -1,4 +1,4 @@
-export default (area, section, content) => ({
+export const updateSetting = (area, section, content) => ({
   type: 'UPDATE_SETTING',
   area,
   section,
