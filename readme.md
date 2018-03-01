@@ -1,8 +1,10 @@
 # Start
 ## A React based Start Page for your web browser.
 
-Master: [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=master)](https://travis-ci.org/uchuuio/start)&nbsp;||
-Dev: [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=dev)](https://travis-ci.org/uchuuio/start)
+| Master  | Dev |
+| ------------- | ------------- |
+| [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=master)](https://travis-ci.org/uchuuio/start) | [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=dev)](https://travis-ci.org/uchuuio/start) |
+| [![Coverage Status](https://coveralls.io/repos/github/uchuuio/start/badge.svg?branch=master)](https://coveralls.io/github/uchuuio/start?branch=master)  | [![Coverage Status](https://coveralls.io/repos/github/uchuuio/start/badge.svg?branch=dev)](https://coveralls.io/github/uchuuio/start?branch=dev) |
 
 ### How to use
 
