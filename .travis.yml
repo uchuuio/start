@@ -11,6 +11,7 @@ after_success:
   - yarn run build
 deploy:
   # deploy dev to the staging environment
+  skip_cleanup: true
   - provider: script
     script: up
     on:
