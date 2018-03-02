@@ -1,7 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import sinon from 'sinon';
+
 import Thought from './Index';
 
-it('should render', () => {
-  expect(shallow(<Thought />).is('.thought')).toBe(true);
+describe('<Thought />', () => {
+  it('should render', () => {
+    const wrapper = mount(<Thought />);
+    expect(shallow(<Thought />).is('.thought')).toBe(true);
+  });
+
+  it('calls componentDidMount', () => {
+    sinon.spy(Thought.prototype, 'componentDidMount');
+    const wrapper = shallow(<Thought />);
+    expect(Thought.prototype.componentDidMount.calledOnce).toBe(true);
+  });
 });
