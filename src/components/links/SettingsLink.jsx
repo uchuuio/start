@@ -8,7 +8,7 @@ const StyledTd = styled.td`
 `;
 
 const SettingsLink = props => (
-  <tr>
+  <tr className="settings-link">
     <StyledTd>{props.group}</StyledTd>
     <StyledTd>{props.color}</StyledTd>
     <StyledTd>{props.text}</StyledTd>
