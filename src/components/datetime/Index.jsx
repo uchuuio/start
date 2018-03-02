@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-import { format } from 'date-fns/esm';
-import { es, ja, ru } from 'date-fns/esm/locale';
-
 import { Box, Text } from 'rebass';
+
+const format = require('date-fns/format');
+const es = require('date-fns/locale/es');
+const ja = require('date-fns/locale/ja');
+const ru = require('date-fns/locale/ru');
 
 class DateTime extends Component {
   constructor(props) {
@@ -81,7 +83,7 @@ class DateTime extends Component {
 
   render() {
     return (
-      <Box mx={2}>
+      <Box className="datetime" mx={2}>
         <Text center color="white" f={7}>
           {this.state.dayName} {this.state.day} {this.state.month},
           {this.state.time}

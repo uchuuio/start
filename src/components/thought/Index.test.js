@@ -6,7 +6,6 @@ import Thought from './Index';
 
 describe('<Thought />', () => {
   it('should render', () => {
-    const wrapper = mount(<Thought />);
     expect(shallow(<Thought />).is('.thought')).toBe(true);
   });
 

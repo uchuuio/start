@@ -4,7 +4,7 @@ import fetch from 'isomorphic-fetch';
 
 import { Box, Text } from 'rebass';
 
-class CurrencyComponent extends Component {
+export class CurrencyComponent extends Component {
   constructor(props) {
     super(props);
     const currencies = props.currency.target.split(',');
@@ -52,7 +52,7 @@ class CurrencyComponent extends Component {
 
   render() {
     return (
-      <Box mx={2}>
+      <Box className="currency" mx={2}>
         {this.state.currency.currencies.map((currency, i) => (
           <Box key={i}>
             <Text center color="white" f={4}>
