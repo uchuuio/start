@@ -11,13 +11,14 @@ after_success:
   - yarn run build
 deploy:
   # deploy dev to the staging environment
-  skip_cleanup: true
   - provider: script
+    skip_cleanup: true
     script: up
     on:
       branch: dev
   # deploy master to production
   - provider: script
+    skip_cleanup: true
     script: up deploy production
     on:
       branch: master
