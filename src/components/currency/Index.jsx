@@ -32,7 +32,7 @@ export class CurrencyComponent extends Component {
     const targetCurrency = target || this.state.currency.target;
 
     fetch(
-      `https://api.fixer.io/latest?base=${baseCurrency}&symbols=${targetCurrency}`
+      `https://frankfurter.app/latest?base=${baseCurrency}&symbols=${targetCurrency}`
     )
       .then(response => response.json())
       .then(res => {
