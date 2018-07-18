@@ -1,6 +1,7 @@
 export const LINKS = {
   ADD_LINK: '@@start/links/ADD_LINK',
   REMOVE_LINK: '@@start/links/REMOVE_LINK',
+  RESET_LINKS: '@@start/links/RESET_LINKS',
 };
 
 export const SETTINGS = {

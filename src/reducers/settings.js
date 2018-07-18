@@ -1,3 +1,5 @@
+import { SETTINGS } from './../constants/actionTypes';
+
 const baseSettings = {
   modules: {
     datetime: true,
@@ -17,7 +19,7 @@ const baseSettings = {
 
 function settings(state = baseSettings, action) {
   switch (action.type) {
-    case 'UPDATE_SETTING': {
+    case SETTINGS.UPDATE_SETTING: {
       const { area, section, content } = action;
       return Object.assign({}, state, {
         [area]: Object.assign({}, state[area], {

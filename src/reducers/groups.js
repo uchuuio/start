@@ -1,6 +1,8 @@
+import { LINKS } from './../constants/actionTypes';
+
 function groups(state = { links: [] }, action) {
   switch (action.type) {
-    case 'ADD_LINK': {
+    case LINKS.ADD_LINK: {
       let { id } = action;
       while (id < state.links.length) {
         id += 1;
@@ -18,7 +20,7 @@ function groups(state = { links: [] }, action) {
         ],
       });
     }
-    case 'REMOVE_LINK': {
+    case LINKS.REMOVE_LINK: {
       let i = action.id;
       state.links.forEach((link, index) => {
         if (link.id === action.id) {
@@ -29,7 +31,7 @@ function groups(state = { links: [] }, action) {
         links: [...state.links.slice(0, i), ...state.links.slice(i + 1)],
       });
     }
-    case 'RESET_LINKS':
+    case LINKS.RESET_LINKS:
       return [];
     default:
       return state;
