@@ -13,10 +13,6 @@ const baseSettings = {
     location: '',
     units: '',
   },
-  currency: {
-    base: 'GBP',
-    target: 'USD,JPY',
-  },
 };
 
 function settings(state = baseSettings, action) {

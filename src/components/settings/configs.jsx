@@ -4,6 +4,7 @@ import { Checkbox, Label, Input, Select, Subhead } from 'rebass';
 import styled from 'styled-components';
 
 import { updateSetting } from '../../actions/settings';
+import { updateCurrencySettings } from '../../actions/currency';
 
 const Section = styled.section`
   margin: 10px 0;
@@ -32,11 +33,19 @@ class UpdateSettingsForm extends Component {
 
     this.props.updateSettingDispatch(section, name, value);
 
-    this.setState({
-      [section]: {
-        [name]: value,
-      },
-    });
+    this.setState(
+      {
+        ...this.state,
+        [section]: {
+          ...this.state[section],
+          [name]: value,
+        },
+      }, () => {
+        if (section === 'currency') {
+          this.props.updateCurrencyDispatch(this.state.currency.base, this.state.currency.target);
+        }
+      }
+    );
   }
 
   render() {
@@ -178,6 +187,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateSettingDispatch: (area, section, content) => {
     dispatch(updateSetting(area, section, content));
+  },
+  updateCurrencyDispatch: (baseCurrency, targetCurrency) => {
+    dispatch(updateCurrencySettings(baseCurrency, targetCurrency));
   },
 });
 

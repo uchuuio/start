@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { generator } from 'uigradients';
@@ -33,12 +33,12 @@ const FullScreenGradient = styled.div`
   z-index: -1;
 `;
 
-class AppComponent extends Component {
-  getColumnWidths() {
+const AppComponent = props => {
+  function getColumnWidths() {
     let i = -1;
 
-    for (const module in this.props.settings.modules) {
-      if (this.props.settings.modules[module]) {
+    for (const module in props.settings.modules) {
+      if (props.settings.modules[module]) {
         i += 1;
       }
     }
@@ -47,39 +47,37 @@ class AppComponent extends Component {
     return [1, width];
   }
 
-  render() {
-    return (
-      <div>
-        <FullScreenGradient className="gradientbg" />
-        <Settings />
+  return (
+    <div>
+      <FullScreenGradient className="gradientbg" />
+      <Settings />
 
-        {this.props.settings.modules.datetime && (
-          <DateTime locale={this.props.settings.datetime.locale} />
+      {props.settings.modules.datetime && (
+        <DateTime locale={props.settings.datetime.locale} />
+      )}
+
+      <Flex wrap>
+        {props.settings.modules.weather && (
+          <Box width={getColumnWidths()}>
+            <Text>Weather Coming Soon!</Text>
+          </Box>
         )}
+        {props.settings.modules.currency && (
+          <Box width={getColumnWidths()}>
+            <Currency />
+          </Box>
+        )}
+        {props.settings.modules.thought && (
+          <Box width={getColumnWidths()}>
+            <Thought />
+          </Box>
+        )}
+      </Flex>
 
-        <Flex wrap>
-          {this.props.settings.modules.weather && (
-            <Box width={this.getColumnWidths()}>
-              <Text>Weather Coming Soon!</Text>
-            </Box>
-          )}
-          {this.props.settings.modules.currency && (
-            <Box width={this.getColumnWidths()}>
-              <Currency />
-            </Box>
-          )}
-          {this.props.settings.modules.thought && (
-            <Box width={this.getColumnWidths()}>
-              <Thought />
-            </Box>
-          )}
-        </Flex>
-
-        <Links />
-      </div>
-    );
-  }
-}
+      <Links />
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
   settings: state.settings,

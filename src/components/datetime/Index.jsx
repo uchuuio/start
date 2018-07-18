@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Box, Text } from 'rebass';
 
-const format = require('date-fns/format');
+import { format } from 'date-fns';
 const es = require('date-fns/locale/es');
 const ja = require('date-fns/locale/ja');
 const ru = require('date-fns/locale/ru');

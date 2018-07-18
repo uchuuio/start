@@ -1,75 +1,48 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import fetch from 'isomorphic-fetch';
+import { fetchCurrency } from '../../actions/currency';
 
+import { isAfter } from 'date-fns';
 import { Box, Text } from 'rebass';
 
-export class CurrencyComponent extends Component {
-  constructor(props) {
-    super(props);
-    const currencies = props.currency.target.split(',');
-    this.state = {
-      currency: {
-        base: props.currency.base,
-        target: props.currency.target,
-        currencies,
-        rates: [],
-      },
-    };
+const CurrencyComponent = props => {
+  // Or more than an hour ago
+  let wasFetchedNotRecently = false;
+  if (isAfter(new Date(), props.currency.nextFetch)) {
+    wasFetchedNotRecently = true;
   }
 
-  componentDidMount() {
-    this.getCurrencies();
+  if ((props.currency.lastFetched === '' || wasFetchedNotRecently) && props.currency.isFetching === false) {
+    props.fetchLatestCurrency(props.currency.base, props.currency.target);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { base, target } = nextProps.currency;
-    this.getCurrencies(base, target);
+  let currencies = [props.currency.target];
+  if (props.currency.target.includes(',')) {
+    currencies = props.currency.target.split(',');
   }
 
-  getCurrencies(base, target) {
-    const baseCurrency = base || this.state.currency.base;
-    const targetCurrency = target || this.state.currency.target;
+  return <Box className="currency" mx={2}>
+      {currencies.map((currency, i) => <Box key={i}>
+          <Text center color="white" f={4}>
+            1{props.currency.base} buys {props.currency.rates[currency]} {currency}
+          </Text>
+        </Box>)}
+    </Box>;
+};;
 
-    fetch(
-      `https://frankfurter.app/latest?base=${baseCurrency}&symbols=${targetCurrency}`
-    )
-      .then(response => response.json())
-      .then(res => {
-        this.setState(() => {
-          const currencies = targetCurrency.split(',');
-          return {
-            currency: {
-              base: baseCurrency,
-              target: targetCurrency,
-              currencies,
-              rates: res.rates,
-            },
-          };
-        });
-      });
-  }
+const mapStateToProps = state => {
+  return { currency: state.currency };
+};
 
-  render() {
-    return (
-      <Box className="currency" mx={2}>
-        {this.state.currency.currencies.map((currency, i) => (
-          <Box key={i}>
-            <Text center color="white" f={4}>
-              1{this.state.currency.base} buys{' '}
-              {this.state.currency.rates[currency]} {currency}
-            </Text>
-          </Box>
-        ))}
-      </Box>
-    );
-  }
-}
-
-const mapStateToProps = state => ({
-  currency: state.settings.currency,
+const mapDispatchToProps = dispatch => ({
+  fetchLatestCurrency: (baseCurrency, targetCurrency) => {
+    dispatch(fetchCurrency(baseCurrency, targetCurrency));
+  },
 });
 
-const Currency = connect(mapStateToProps)(CurrencyComponent);
+const Currency = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CurrencyComponent);
 
 export default Currency;

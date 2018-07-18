@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { removeLink } from '../../actions/links';
@@ -10,24 +10,22 @@ const RemoveTd = styled.td`
   text-decoration: underline;
 `;
 
-class Link extends Component {
-  handleClick(id) {
-    this.props.removeLinkDispatch(id);
+const RemoveLinkComponent = props => {
+  function handleClick(id) {
+    props.removeLinkDispatch(id);
   }
 
-  render() {
-    return (
-      <RemoveTd
-        onClick={e => {
-          e.preventDefault();
-          this.handleClick(this.props.id);
-        }}
-      >
-        Remove
-      </RemoveTd>
-    );
-  }
-}
+  return (
+    <RemoveTd
+      onClick={e => {
+        e.preventDefault();
+        handleClick(props.id);
+      }}
+    >
+      Remove
+    </RemoveTd>
+  );
+};
 
 const mapDispatchToProps = dispatch => ({
   removeLinkDispatch: id => {
@@ -35,6 +33,9 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const RemoveLink = connect(null, mapDispatchToProps)(Link);
+const RemoveLink = connect(
+  null,
+  mapDispatchToProps
+)(RemoveLinkComponent);
 
 export default RemoveLink;

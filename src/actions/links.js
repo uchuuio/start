@@ -1,7 +1,9 @@
+import { LINKS } from './../constants/actionTypes';
+
 let nextLinkId = 0;
 
 export const addLink = (group, color, text, link) => ({
-  type: 'ADD_LINK',
+  type: LINKS.ADD_LINK,
   id: (nextLinkId += 1),
   group,
   color,
@@ -10,6 +12,6 @@ export const addLink = (group, color, text, link) => ({
 });
 
 export const removeLink = id => ({
-  type: 'REMOVE_LINK',
+  type: LINKS.REMOVE_LINK,
   id,
 });
