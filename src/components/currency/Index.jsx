@@ -6,7 +6,6 @@ import { isAfter } from 'date-fns';
 import { Box, Text } from 'rebass';
 
 const CurrencyComponent = props => {
-  // Or more than an hour ago
   let wasFetchedNotRecently = false;
   if (isAfter(new Date(), props.currency.nextFetch)) {
     wasFetchedNotRecently = true;
