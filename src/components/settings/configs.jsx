@@ -19,8 +19,9 @@ const StyledInput = styled(Input)`
 class UpdateSettingsForm extends Component {
   constructor(props) {
     super(props);
-    const { settings } = props;
+    const { settings, currency } = props;
     this.state = settings;
+    this.state.currency = { base: currency.base, target: currency.target };
 
     this.handleChanges = this.handleChanges.bind(this);
   }
@@ -182,6 +183,7 @@ class UpdateSettingsForm extends Component {
 
 const mapStateToProps = state => ({
   settings: state.settings,
+  currency: state.currency,
 });
 
 const mapDispatchToProps = dispatch => ({
