@@ -1,24 +1,24 @@
 language: node_js
 node_js:
-  - "6.10.3"
-before_script:
-  - sudo chown -R $(whoami) /usr/local/bin
-  - curl -f https://up.apex.sh/install | sh
-  # - up upgrade
+  - "node"
+cache:
+  directories:
+    - "node_modules" # This will tell Travis CI to cache the dependencies
+script: npm test # Here you could also run the build step of your application
 after_script:
   - cat ./coverage/lcov.info | coveralls
 after_success:
   - yarn run build
+before_deploy: npm install now --no-save # Install Now CLI on Travis
 deploy:
-  # deploy dev to the staging environment
-  - provider: script
+  - provider: script # Run a custom deployment script which we will define below
+    script: now --token $NOW_TOKEN
     skip_cleanup: true
-    script: up
     on:
-      branch: dev
-  # deploy master to production
+      all_branches: true
+      master: false
   - provider: script
+    script: now --token $NOW_TOKEN && now alias --token $NOW_TOKEN
     skip_cleanup: true
-    script: up deploy production
     on:
-      branch: master
+      master: true
