@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { generator } from 'uigradients';
+// import { generator } from 'uigradients';
 import { Flex, Box, Text } from 'rebass';
 import styled from 'styled-components';
+import bg from './../images/bg.gif';
 
 import Links from './links/Index';
 import Settings from './settings/Index';
@@ -12,19 +13,25 @@ import DateTime from './datetime/Index';
 import Thought from './thought/Index';
 import Currency from './currency/Index';
 
-const Gradient = generator({
-  gradient: 'timber',
-  type: 'radial',
-  options: {
-    position: '45px 20px',
-    shape: 'ellipse',
-    colorStops: ['0%', '100%'],
-    extent: 'farthest-corner',
-  },
-});
+// const Gradient = generator({
+//   gradient: 'timber',
+//   type: 'radial',
+//   options: {
+//     position: '45px 20px',
+//     shape: 'ellipse',
+//     colorStops: ['0%', '100%'],
+//     extent: 'farthest-corner',
+//   },
+// });
+// ${Gradient};
+
+const Content = styled(Flex)`
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+`;
 
 const FullScreenGradient = styled.div`
-  ${Gradient};
+  background-image: url(${bg});
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -52,27 +59,27 @@ const AppComponent = props => {
       <FullScreenGradient className="gradientbg" />
       <Settings />
 
-      {props.settings.modules.datetime && (
-        <DateTime locale={props.settings.datetime.locale} />
-      )}
-
-      <Flex wrap>
-        {props.settings.modules.weather && (
-          <Box width={getColumnWidths()}>
-            <Text>Weather Coming Soon!</Text>
-          </Box>
+      <Content wrap mx="auto" pb={2}>
+        {props.settings.modules.datetime && (
+          <DateTime locale={props.settings.datetime.locale} />
         )}
+
         {props.settings.modules.currency && (
-          <Box width={getColumnWidths()}>
+          <Box style={{alignSelf: 'center'}} width={getColumnWidths()}>
             <Currency />
           </Box>
         )}
+        {props.settings.modules.weather && (
+          <Box style={{alignSelf: 'center'}} width={getColumnWidths()}>
+            <Text>Weather Coming Soon!</Text>
+          </Box>
+        )}
         {props.settings.modules.thought && (
-          <Box width={getColumnWidths()}>
+          <Box style={{alignSelf: 'center'}} width={getColumnWidths()}>
             <Thought />
           </Box>
         )}
-      </Flex>
+      </Content>
 
       <Links />
     </div>

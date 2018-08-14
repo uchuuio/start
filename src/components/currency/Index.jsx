@@ -23,11 +23,16 @@ export const CurrencyComponent = props => {
     currencies = props.currency.target.split(',');
   }
 
+  let alignment = '';
+  if (!props.modules.weather && !props.modules.currency) {
+    alignment = 'center';
+  }
+
   return (
     <Box className="currency" mx={2}>
       {currencies.map((currency, i) => (
         <Box key={i}>
-          <Text center color="white" f={4}>
+          <Text style={{ textAlign: alignment }} f={4}>
             1{props.currency.base} buys {props.currency.rates[currency]}{' '}
             {currency}
           </Text>
@@ -38,7 +43,7 @@ export const CurrencyComponent = props => {
 };;
 
 const mapStateToProps = state => {
-  return { currency: state.currency };
+  return { modules: state.settings.modules, currency: state.currency };
 };
 
 const mapDispatchToProps = dispatch => ({

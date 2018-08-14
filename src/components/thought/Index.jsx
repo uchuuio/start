@@ -26,23 +26,21 @@ export const ThoughtComponent = props => {
     props.fetchLatestThought();
   }
 
-  let centerAlign = '';
+  let alignment = '';
   if (!props.modules.weather && !props.modules.currency) {
-    centerAlign = 'center';
+    alignment = 'center';
   }
 
   return (
     <Box className="thought" mx={2}>
       <StyledText
-        color="white"
         f={4}
-        style={{ textAlign: centerAlign }}
+        style={{ textAlign: alignment }}
         dangerouslySetInnerHTML={{ __html: props.thought.jp }}
       />
       <StyledText
-        color="white"
         f={4}
-        style={{ textAlign: centerAlign }}
+        style={{ textAlign: alignment }}
         dangerouslySetInnerHTML={{ __html: props.thought.en }}
       />
     </Box>

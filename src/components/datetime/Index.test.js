@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import DateTime from './Index';
 
 describe('<DateTime />', () => {
-  const props = { locale: 'EN' };
+  const props = { locale: 'EN', modules: {} };
 
   it('should render', () => {
     expect(shallow(<DateTime {...props} />).is('.datetime')).toBe(true);

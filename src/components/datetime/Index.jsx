@@ -83,8 +83,8 @@ class DateTime extends Component {
 
   render() {
     return (
-      <Box className="datetime" mx={2}>
-        <Text center color="white" f={7}>
+      <Box className="datetime" mx={2} width="100%">
+        <Text center f={7}>
           {this.state.dayName} {this.state.day} {this.state.month},
           {this.state.time}
         </Text>
