@@ -9,8 +9,8 @@ export function fetchThought() {
       return fetch('https://zen.uchuu.io/api')
         .then(response => response.json())
         .then(data => {
-          const enThought = data.thought_en.replace(/\|/g, '<br />');
-          const jpThought = data.thought_jp.replace(/\|/g, '<br />');
+          const enThought = data.enthought.replace(/\|/g, '<br />');
+          const jpThought = data.jpthought.replace(/\|/g, '<br />');
 
           return {
             en: enThought,
