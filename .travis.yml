@@ -7,8 +7,6 @@ cache:
 script: npm test # Here you could also run the build step of your application
 after_script:
   - cat ./coverage/lcov.info | coveralls
-after_success:
-  - yarn run build
 before_deploy: npm install now --no-save # Install Now CLI on Travis
 deploy:
   - provider: script # Run a custom deployment script which we will define below
