@@ -1,17 +1,12 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import sinon from 'sinon';
+import { shallow } from 'enzyme';
 
-import Thought from './Index';
+import { ThoughtComponent } from './Index';
 
 describe('<Thought />', () => {
-  it('should render', () => {
-    expect(shallow(<Thought />).is('.thought')).toBe(true);
-  });
+  const props = { modules: {}, thought: {} };
 
-  it('calls componentDidMount', () => {
-    sinon.spy(Thought.prototype, 'componentDidMount');
-    const wrapper = shallow(<Thought />);
-    expect(Thought.prototype.componentDidMount.calledOnce).toBe(true);
+  it('should render', () => {
+    expect(shallow(<ThoughtComponent {...props} />).is('.thought')).toBe(true);
   });
 });

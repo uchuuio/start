@@ -13,13 +13,16 @@ const StyledText = styled(Text)`
   }
 `;
 
-const ThoughtComponent = props => {
+export const ThoughtComponent = props => {
   let wasFetchedNotRecently = false;
   if (isAfter(new Date(), props.thought.nextFetch)) {
     wasFetchedNotRecently = true;
   }
 
-  if ((props.thought.lastFetched === '' || wasFetchedNotRecently) && props.thought.isFetching === false) {
+  if (
+    (props.thought.lastFetched === '' || wasFetchedNotRecently) &&
+    props.thought.isFetching === false
+  ) {
     props.fetchLatestThought();
   }
 
@@ -28,10 +31,22 @@ const ThoughtComponent = props => {
     centerAlign = 'center';
   }
 
-  return <Box className="thought" mx={2}>
-      <StyledText color="white" f={4} style={{ textAlign: centerAlign }} dangerouslySetInnerHTML={{ __html: props.thought.jp }} />
-      <StyledText color="white" f={4} style={{ textAlign: centerAlign }} dangerouslySetInnerHTML={{ __html: props.thought.en }} />
-    </Box>;
+  return (
+    <Box className="thought" mx={2}>
+      <StyledText
+        color="white"
+        f={4}
+        style={{ textAlign: centerAlign }}
+        dangerouslySetInnerHTML={{ __html: props.thought.jp }}
+      />
+      <StyledText
+        color="white"
+        f={4}
+        style={{ textAlign: centerAlign }}
+        dangerouslySetInnerHTML={{ __html: props.thought.en }}
+      />
+    </Box>
+  );
 };
 
 const mapStateToProps = state => {

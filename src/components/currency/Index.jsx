@@ -5,13 +5,16 @@ import { fetchCurrency } from '../../actions/currency';
 import { isAfter } from 'date-fns';
 import { Box, Text } from 'rebass';
 
-const CurrencyComponent = props => {
+export const CurrencyComponent = props => {
   let wasFetchedNotRecently = false;
   if (isAfter(new Date(), props.currency.nextFetch)) {
     wasFetchedNotRecently = true;
   }
 
-  if ((props.currency.lastFetched === '' || wasFetchedNotRecently) && props.currency.isFetching === false) {
+  if (
+    (props.currency.lastFetched === '' || wasFetchedNotRecently) &&
+    props.currency.isFetching === false
+  ) {
     props.fetchLatestCurrency(props.currency.base, props.currency.target);
   }
 
@@ -20,13 +23,18 @@ const CurrencyComponent = props => {
     currencies = props.currency.target.split(',');
   }
 
-  return <Box className="currency" mx={2}>
-      {currencies.map((currency, i) => <Box key={i}>
+  return (
+    <Box className="currency" mx={2}>
+      {currencies.map((currency, i) => (
+        <Box key={i}>
           <Text center color="white" f={4}>
-            1{props.currency.base} buys {props.currency.rates[currency]} {currency}
+            1{props.currency.base} buys {props.currency.rates[currency]}{' '}
+            {currency}
           </Text>
-        </Box>)}
-    </Box>;
+        </Box>
+      ))}
+    </Box>
+  );
 };;
 
 const mapStateToProps = state => {
