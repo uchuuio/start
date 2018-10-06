@@ -10,15 +10,14 @@ const RemoveTd = styled.td`
   text-decoration: underline;
 `;
 
-const RemoveLinkComponent = props => {
+export const RemoveLinkComponent = props => {
   function handleClick(id) {
     props.removeLinkDispatch(id);
   }
 
   return (
     <RemoveTd
-      onClick={e => {
-        e.preventDefault();
+      onClick={() => {
         handleClick(props.id);
       }}
     >

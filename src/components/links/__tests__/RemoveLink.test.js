@@ -1,11 +1,19 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import sinon from 'sinon';
+import { mount } from 'enzyme';
 
 import { RemoveLinkComponent } from './../RemoveLink';
 
 describe('<RemoveLinkComponent />', () => {
-  xit('should render', () => {
-    expect(shallow(<RemoveLinkComponent id="0" />).is('.currency')).toBe(true);
+  const mockRemoveLinkDispatch = jest.fn();
+  let props = { id: 0, removeLinkDispatch: mockRemoveLinkDispatch };
+  let removeLink = mount(<RemoveLinkComponent {...props} />);
+
+  it('should render', () => {
+    expect(removeLink.text()).toBe('Remove');
+  });
+
+  it('should dispatch function on click', () => {
+    removeLink.simulate('click');
+    expect(mockRemoveLinkDispatch).toHaveBeenCalled();
   });
 });
