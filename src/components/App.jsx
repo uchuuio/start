@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// import { generator } from 'uigradients';
 import { Flex, Box, Text } from 'rebass';
 import styled from 'styled-components';
 import bg from './../images/bg.gif';
@@ -13,17 +12,8 @@ import DateTime from './datetime/Index';
 import Thought from './thought/Index';
 import Currency from './currency/Index';
 
-// const Gradient = generator({
-//   gradient: 'timber',
-//   type: 'radial',
-//   options: {
-//     position: '45px 20px',
-//     shape: 'ellipse',
-//     colorStops: ['0%', '100%'],
-//     extent: 'farthest-corner',
-//   },
-// });
-// ${Gradient};
+import { refreshState as refreshCurrency } from '../actions/currency';
+import { refreshState as refreshThought } from '../actions/thought';
 
 const Content = styled(Flex)`
   background: rgba(0, 0, 0, 0.2);
@@ -41,6 +31,8 @@ const FullScreenGradient = styled.div`
 `;
 
 const AppComponent = props => {
+  props.cleanState();
+
   function getColumnWidths() {
     let i = -1;
 
@@ -90,6 +82,16 @@ const mapStateToProps = state => ({
   settings: state.settings,
 });
 
-const App = connect(mapStateToProps)(AppComponent);
+const mapDispatchToProps = dispatch => ({
+  cleanState: () => {
+    dispatch(refreshCurrency());
+    dispatch(refreshThought());
+  },
+});
+
+const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppComponent);
 
 export default App;

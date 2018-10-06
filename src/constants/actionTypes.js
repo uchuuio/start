@@ -9,6 +9,7 @@ export const SETTINGS = {
 };
 
 export const CURRENCY = {
+  REFRESH_STATE: '@@start/currency/REFRESH_STATE',
   FETCH_CURRENCY: '@@start/currency/FETCH_CURRENCY',
   FETCH_CURRENCY_PENDING: '@@start/currency/FETCH_CURRENCY_PENDING',
   FETCH_CURRENCY_FULFILLED: '@@start/currency/FETCH_CURRENCY_FULFILLED',
@@ -17,6 +18,7 @@ export const CURRENCY = {
 };
 
 export const THOUGHT = {
+  REFRESH_STATE: '@@start/thought/REFRESH_STATE',
   FETCH_THOUGHT: '@@start/thought/FETCH_THOUGHT',
   FETCH_THOUGHT_PENDING: '@@start/thought/FETCH_THOUGHT_PENDING',
   FETCH_THOUGHT_FULFILLED: '@@start/thought/FETCH_THOUGHT_FULFILLED',

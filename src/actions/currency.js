@@ -2,6 +2,12 @@ import fetch from 'isomorphic-fetch';
 
 import { CURRENCY } from './../constants/actionTypes';
 
+export function refreshState() {
+  return {
+    type: CURRENCY.REFRESH_STATE,
+  };
+}
+
 export function updateCurrencySettings(baseCurrency, targetCurrency) {
   return {
     type: CURRENCY.UPDATE_CURRENCY_SETTING,

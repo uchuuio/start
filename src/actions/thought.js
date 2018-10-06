@@ -2,6 +2,12 @@ import fetch from 'isomorphic-fetch';
 
 import { THOUGHT } from './../constants/actionTypes';
 
+export function refreshState() {
+  return {
+    type: THOUGHT.REFRESH_STATE,
+  };
+}
+
 export function fetchThought() {
   return {
     type: THOUGHT.FETCH_THOUGHT,
