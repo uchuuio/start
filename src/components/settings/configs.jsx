@@ -43,7 +43,10 @@ class UpdateSettingsForm extends Component {
         },
       }, () => {
         if (section === 'currency') {
-          this.props.updateCurrencyDispatch(this.state.currency.base, this.state.currency.target);
+          this.props.updateCurrencyDispatch(
+            this.state.currency.base,
+            this.state.currency.target
+          );
         }
       }
     );
@@ -52,6 +55,30 @@ class UpdateSettingsForm extends Component {
   render() {
     return (
       <div className="configs">
+        <Section>
+          <Subhead>Background</Subhead>
+          <FormGroup>
+            <Label>Image Url</Label>
+            <StyledInput
+              value={this.state.background.imageurl}
+              onChange={this.handleChanges}
+              data-section="background"
+              name="imageurl"
+              placeholder=""
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>Video Url</Label>
+            <StyledInput
+              value={this.state.background.videourl}
+              onChange={this.handleChanges}
+              data-section="background"
+              name="videourl"
+              placeholder=""
+            />
+          </FormGroup>
+        </Section>
+
         <Section>
           <Subhead>Date/Time</Subhead>
           <FormGroup>
@@ -195,8 +222,9 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const UpdateSettings = connect(mapStateToProps, mapDispatchToProps)(
-  UpdateSettingsForm
-);
+const UpdateSettings = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UpdateSettingsForm);
 
 export default UpdateSettings;

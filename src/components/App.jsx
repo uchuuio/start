@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { Flex, Box, Text } from 'rebass';
 import styled from 'styled-components';
-import bg from './../images/bg.gif';
 
 import Links from './links/Index';
 import Settings from './settings/Index';
@@ -13,6 +12,7 @@ import Thought from './thought/Index';
 import Currency from './currency/Index';
 
 import { refreshState as refreshCurrency } from '../actions/currency';
+import { addImages } from '../actions/settings';
 import { refreshState as refreshThought } from '../actions/thought';
 
 const Content = styled(Flex)`
@@ -20,18 +20,23 @@ const Content = styled(Flex)`
   color: #fff;
 `;
 
-const FullScreenGradient = styled.div`
-  background-image: url(${bg});
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+const FullScreenBg = styled.video`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translate(-50%, -50%);
 `;
 
 const AppComponent = props => {
   props.cleanState();
+  if (!props.settings.background) {
+    props.addImageState();
+  }
 
   function getColumnWidths() {
     let i = -1;
@@ -48,7 +53,10 @@ const AppComponent = props => {
 
   return (
     <div>
-      <FullScreenGradient className="gradientbg" />
+      <FullScreenBg poster={props.settings.background.imageurl} preload="auto" autoPlay muted loop playsInline>
+          <source src={props.settings.background.videourl} type="video/mp4" />
+      </FullScreenBg>
+
       <Settings />
 
       <Content wrap mx="auto" pb={2}>
@@ -87,6 +95,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(refreshCurrency());
     dispatch(refreshThought());
   },
+  addImageState: () => {
+    dispatch(addImages());
+  }
 });
 
 const App = connect(

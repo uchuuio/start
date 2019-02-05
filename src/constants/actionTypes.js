@@ -5,6 +5,7 @@ export const LINKS = {
 };
 
 export const SETTINGS = {
+  ADD_IMAGES: '@@start/settings/ADD_IMAGES',
   UPDATE_SETTING: '@@start/settings/UPDATE_SETTING',
 };
 
