@@ -1,23 +1,22 @@
 # Start
 ## A React based Start Page for your web browser.
 
-| Master  | Dev |
-| ------------- | ------------- |
-| [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=master)](https://travis-ci.org/uchuuio/start) | [![Build Status](https://travis-ci.org/uchuuio/start.svg?branch=dev)](https://travis-ci.org/uchuuio/start) |
-| [![Coverage Status](https://coveralls.io/repos/github/uchuuio/start/badge.svg?branch=master)](https://coveralls.io/github/uchuuio/start?branch=master)  | [![Coverage Status](https://coveralls.io/repos/github/uchuuio/start/badge.svg?branch=dev)](https://coveralls.io/github/uchuuio/start?branch=dev) |
+### Version 7 Done
 
-### How to use
+I went really back to basics for this version of the start page removing a bunch of the customisable elements and features and just doing something that I think is fab and gives me what I want for now.
 
-Head to the website and click the settings button in bottom right to open the settings modal. Here you can configure the start page to be how you want it with custom links and widgets. Once you're happy and you can set it up as your new tab page by following the steps here: http://www.guidingtech.com/8004/have-new-tab-page-open-specific-website-firefox-chrome/
+The date/time is now solely in Japanese to help with learning and understanding times. (I'd love to see about adding furigana on top of this right now)
 
-### Building
+Currencies are in USD & JPY cause they're the only two places I would visit.
 
-You'll need [Node](http://nodejs.org/)!
+Added my wanikani time to next review at last. Hopefully this will keep me on track
 
-Just clone the repo and run `npm install` (or `yarn install`) for dependencies, we use the excellant create-react-app as a base.
+### Modifying
 
-### TODO
+Most things should be fairly easy to change for your own use. If you want to remove the japanese date/times then just remove the locales from those areas. Add your own wanikani key to get your own review time and for currencies you can edit the target currencies with the ones you want to track.
 
-* Needs Icons/Styling
-* Integrate Weather
-* Integrate Wanikani
+### Next steps
+
+- Weather
+- Quick Links
+- User customisation
