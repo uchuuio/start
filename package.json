@@ -1,51 +1,25 @@
 {
   "name": "start",
-  "version": "6.0.0-beta",
+  "version": "7.0.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
-    "axs": "^2.0.0-1",
-    "date-fns": "2.0.0-alpha.7",
-    "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.17.4",
-    "normalize.css": "^7.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-modal": "^2.2.2",
-    "react-redux": "^5.0.5",
-    "rebass": "^1.0.3",
-    "redux": "^3.7.0",
-    "redux-localstorage": "^0.4.1",
-    "redux-promise-middleware": "^5.1.1",
-    "styled-components": "^3.1.6",
-    "uigradients": "^0.2.1"
+    "autoprefixer": "^10.2.1",
+    "date-fns": "^2.16.1",
+    "next": "10.0.5",
+    "postcss": "^8.2.4",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "swr": "^0.4.0",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "coveralls": "^3.0.0",
-    "enzyme": "^3.0.0",
-    "enzyme-adapter-react-16": "^1.0.0",
-    "eslint": "^4.17.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.6.1",
-    "husky": "^0.14.3",
-    "jest-enzyme": "^4.0.0",
-    "jest-fetch-mock": "^1.4.2",
-    "precise-commits": "^1.0.1",
-    "prettier": "^1.10.2",
-    "react-scripts": "1.1.4",
-    "react-test-renderer": "^16.0.0",
-    "sinon": "^4.4.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "lint": "eslint src/**/*.js src/**/*.jsx",
-    "precommit": "precise-commits",
-    "test": "react-scripts test --env=jsdom --coverage",
-    "test:watch": "react-scripts test --env=jsdom --coverage --watch",
-    "eject": "react-scripts eject"
+    "@types/node": "^14.14.21",
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.3"
   }
 }
