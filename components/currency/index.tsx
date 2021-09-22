@@ -12,13 +12,14 @@ const Currency = () => {
     return (
         <div className="font-normal">
             {Object.keys(data.rates).map(currency => {
-                let currencyIcon;
-                if (currency === 'JPY') {currencyIcon = '円'};
-                if (currency === 'USD') {currencyIcon = '$'};
+                if (currency === 'JPY') {
+                    return <p key={currency}>£1 buys {data.rates[currency]}円</p>
+                };
+                if (currency === 'USD') {
+                    return <p key={currency}>£1 buys ${data.rates[currency]}</p>
+                };
 
-                return (
-                    <p key={currency}>£1 buys {currencyIcon}{data.rates[currency]}</p>
-                );
+                return null;
             })}
         </div>
     )
