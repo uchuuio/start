@@ -17,8 +17,8 @@ export default function Home() {
           <Time />
           <Separator />
           <Currency />
-          <Separator />
-          {/* <Wanikani /> */}
+          {/* <Separator />
+          <Wanikani /> */}
         </main>
       </div>
     </>
