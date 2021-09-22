@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Separator from '../components/separator';
 import Time from '../components/time';
 import Currency from '../components/currency';
-import Wanikani from '../components/wanikani';
+// import Wanikani from '../components/wanikani';
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
           <Separator />
           <Currency />
           <Separator />
-          <Wanikani />
+          {/* <Wanikani /> */}
         </main>
       </div>
     </>
