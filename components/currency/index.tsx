@@ -4,7 +4,15 @@ import fetcher from '../../utils/fetcher';
 const Currency = () => {
     const baseCurrency = 'GBP';
     const targetCurrency = 'USD,JPY';
-    const {data, error} = useSWR(`https://frankfurter.app/latest?base=${baseCurrency}&symbols=${targetCurrency}`, fetcher, {revalidateOnFocus: false});
+    const {data, error} = useSWR(
+        `https://frankfurter.app/latest?base=${baseCurrency}&symbols=${targetCurrency}`,
+        url => fetcher(url, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }),
+        {revalidateOnFocus: false}
+    );
 
     if (!data?.rates) return (<p>Loading...</p>);
     if (error) return (<p>Issue loading currencies</p>);

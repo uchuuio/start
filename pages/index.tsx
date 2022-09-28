@@ -10,6 +10,7 @@ export default function Home() {
     <>
       <Head>
         <title>START</title>
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
       </Head>
 
       <div className="min-h-screen h-full flex items-center justify-center bg-no-repeat bg-cover" style={{backgroundImage: 'url(/2641048.gif)'}}>
