@@ -1,7 +1,7 @@
 # Start
-## A React based Start Page for your web browser.
+## An Astro based Start Page for your web browser.
 
-### Version 7 Done
+### Version 8
 
 I went really back to basics for this version of the start page removing a bunch of the customisable elements and features and just doing something that I think is fab and gives me what I want for now.
 

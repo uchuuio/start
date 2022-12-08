@@ -1,0 +1,45 @@
+<astro-time>
+  <p id="day"  class="font-normal" />
+  <p id="date" class="text-4xl font-normal" />
+  <p id="time" class="text-3xl" />
+</astro-time>
+
+<script>
+  import { format } from 'date-fns';
+  import { ja } from 'date-fns/locale';
+
+  const formatDate = (date: Date) => format(date, 'doMMMMyyyy', {locale: ja});
+  const formatDay = (date: Date) => format(date, 'eeee', {locale: ja});
+  const formatTime = (date: Date) => format(date, 'kk:mm:ss', {locale: ja});
+
+  class AstroTime extends HTMLElement {
+    constructor() {
+      super()
+
+      const date = new Date();
+      this.querySelector('p#date').innerHTML = formatDate(date);
+      this.querySelector('p#day').innerHTML = formatDay(date);
+      this.querySelector('p#time').innerHTML = formatTime(date);
+    }
+
+    timer() {
+      let now = new Date();
+      document.querySelector('p#date').innerHTML = formatDate(now);
+      document.querySelector('p#day').innerHTML = formatDay(now);
+      document.querySelector('p#time').innerHTML = formatTime(now);
+    }
+
+    interval = setInterval(this.timer, 1000);
+
+    connectedCallback() {
+      this.timer();
+      this.interval;
+    }
+
+    disconnectedCallback() {
+      clearInterval(this.interval);
+    }
+  }
+
+  customElements.define('astro-time', AstroTime);
+</script>

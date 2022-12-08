@@ -1,0 +1,20 @@
+---
+const baseCurrency = 'GBP';
+const targetCurrency = 'USD,JPY';
+const url = `https://frankfurter.app/latest?base=${baseCurrency}&symbols=${targetCurrency}`;
+
+const response = await fetch(url);
+const data = await response.json();
+---
+<div class="font-normal">
+  {Object.keys(data.rates).map(currency => {
+    if (currency === 'JPY') {
+      return <p>£1 buys {data.rates[currency]}円</p>
+    };
+    if (currency === 'USD') {
+      return <p>£1 buys ${data.rates[currency]}</p>
+    };
+
+    return null;
+  })}
+</div>
